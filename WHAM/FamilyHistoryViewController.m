@@ -84,6 +84,16 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
+    [super viewWillDisappear:animated];
+}
+
 - (IBAction)questionButtonPressed:(id)sender {
     NSLog(@"Button index: %d", [buttonArray indexOfObject:(UIButton *)sender]);
     NSUInteger index = [buttonArray indexOfObject:(UIButton *)sender];

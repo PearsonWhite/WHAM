@@ -36,7 +36,7 @@ NSNumber* doesSmoke = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = true;
+    //self.navigationController.navigationBarHidden = true;
     
     // set check buttons (smoke)
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
@@ -52,7 +52,8 @@ NSNumber* doesSmoke = nil;
         [self.buttonSmokeYes setSelected:FALSE];
     }
     
-    [self.navigationController setNavigationBarHidden:FALSE];
+    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
+    [super viewWillAppear:animated];
 }
 
 

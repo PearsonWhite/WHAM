@@ -44,6 +44,7 @@ NSString* keyForDefaults;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSDate* defaultDate;
     switch (self.pickerType) {
@@ -64,6 +65,8 @@ NSString* keyForDefaults;
         default:
             break;
     }
+    
+    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
     
     // check for saved key and update datePicker accordingly
     if(![[[defaults dictionaryRepresentation] allKeys] containsObject:keyForDefaults]){
@@ -88,7 +91,7 @@ NSString* keyForDefaults;
     
     [self.datePicker setDatePickerMode:UIDatePickerModeDate];
     
-    
+    [super viewWillAppear:animated];
     
 }
 

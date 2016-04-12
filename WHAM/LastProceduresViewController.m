@@ -61,6 +61,7 @@ PickViewType pickerToGoTo;
         [self.labelLastPap setText:@"Not set"];
     }
     
+    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

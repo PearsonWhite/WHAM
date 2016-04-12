@@ -936,6 +936,87 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
+    <classes>
+        <class className="DatePickerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DatePickerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonSavePressed:"/>
+                <relationship kind="outlet" name="buttonSave" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="datePicker" candidateClass="UIDatePicker"/>
+            </relationships>
+        </class>
+        <class className="FamilyHistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FamilyHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="questionButton1_no" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton1_yes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton2_Daughter" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton2_Mother" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton2_Sister" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="LastProceduresViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LastProceduresViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonUpdateLastMammoPressed:"/>
+                <relationship kind="action" name="buttonUpdateLastPapPressed:"/>
+                <relationship kind="outlet" name="buttonUpdateLastMammo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonUpdateLastPap" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="labelLastMammo" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="labelLastPap" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MedHistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MedHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="questionButtonPressed:"/>
+                <relationship kind="outlet" name="questionButton1_no" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton1_yes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton2_no" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton2_yes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton3_no" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton3_yes" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton4_no" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="questionButton4_yes" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PersonalInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PersonalInfoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonEnterBirthdayPressed:"/>
+                <relationship kind="action" name="buttonFamilyHistoryPressed:"/>
+                <relationship kind="action" name="buttonLastProceduresPressed:"/>
+                <relationship kind="action" name="buttonPastMedHistoryPressed:"/>
+                <relationship kind="action" name="buttonSmokeNoPressed:"/>
+                <relationship kind="action" name="buttonSmokeYesPressed:"/>
+                <relationship kind="outlet" name="buttonEnterBirthday" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonFamilyHistory" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonLastProcedures" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonPastMedHistory" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonSmokeNo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonSmokeYes" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="ReportViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buttonWhateverpressed" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="testButtonPressed:"/>
+                <relationship kind="outlet" name="testButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="UpcomingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UpcomingViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
