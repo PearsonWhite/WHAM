@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		656C5E0D1CC039AA00999879 /* cancer.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E051CC039AA00999879 /* cancer.png */; };
+		656C5E0E1CC039AA00999879 /* health.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E061CC039AA00999879 /* health.png */; };
+		656C5E0F1CC039AA00999879 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E071CC039AA00999879 /* heart.png */; };
+		656C5E101CC039AA00999879 /* hpv.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E081CC039AA00999879 /* hpv.png */; };
+		656C5E111CC039AA00999879 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E091CC039AA00999879 /* information.png */; };
+		656C5E121CC039AA00999879 /* reports.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E0A1CC039AA00999879 /* reports.png */; };
+		656C5E131CC039AA00999879 /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E0B1CC039AA00999879 /* return.png */; };
+		656C5E141CC039AA00999879 /* save.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E0C1CC039AA00999879 /* save.png */; };
+		656C5E181CC039B000999879 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E151CC039B000999879 /* settings.png */; };
+		656C5E191CC039B000999879 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E161CC039B000999879 /* splash.png */; };
+		656C5E1A1CC039B000999879 /* upcoming.png in Resources */ = {isa = PBXBuildFile; fileRef = 656C5E171CC039B000999879 /* upcoming.png */; };
 		816242D11CA0C58D00BEAC63 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D01CA0C58D00BEAC63 /* DateCell.m */; };
 		816242D41CA0C5E600BEAC63 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D31CA0C5E600BEAC63 /* constants.m */; };
 		816242D71CA0CEDE00BEAC63 /* LastProceduresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D61CA0CEDE00BEAC63 /* LastProceduresViewController.m */; };
@@ -39,6 +50,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		656C5E051CC039AA00999879 /* cancer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancer.png; path = ../../ICONS/cancer.png; sourceTree = "<group>"; };
+		656C5E061CC039AA00999879 /* health.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = health.png; path = ../../ICONS/health.png; sourceTree = "<group>"; };
+		656C5E071CC039AA00999879 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart.png; path = ../../ICONS/heart.png; sourceTree = "<group>"; };
+		656C5E081CC039AA00999879 /* hpv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hpv.png; path = ../../ICONS/hpv.png; sourceTree = "<group>"; };
+		656C5E091CC039AA00999879 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = information.png; path = ../../ICONS/information.png; sourceTree = "<group>"; };
+		656C5E0A1CC039AA00999879 /* reports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reports.png; path = ../../ICONS/reports.png; sourceTree = "<group>"; };
+		656C5E0B1CC039AA00999879 /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = return.png; path = ../../ICONS/return.png; sourceTree = "<group>"; };
+		656C5E0C1CC039AA00999879 /* save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = save.png; path = ../../ICONS/save.png; sourceTree = "<group>"; };
+		656C5E151CC039B000999879 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = ../../ICONS/settings.png; sourceTree = "<group>"; };
+		656C5E161CC039B000999879 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = ../../ICONS/splash.png; sourceTree = "<group>"; };
+		656C5E171CC039B000999879 /* upcoming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upcoming.png; path = ../../ICONS/upcoming.png; sourceTree = "<group>"; };
 		816242CF1CA0C58D00BEAC63 /* DateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCell.h; sourceTree = "<group>"; };
 		816242D01CA0C58D00BEAC63 /* DateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCell.m; sourceTree = "<group>"; };
 		816242D21CA0C5E600BEAC63 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -170,6 +192,17 @@
 		818A9A421C8B581600874CA1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				656C5E151CC039B000999879 /* settings.png */,
+				656C5E161CC039B000999879 /* splash.png */,
+				656C5E171CC039B000999879 /* upcoming.png */,
+				656C5E051CC039AA00999879 /* cancer.png */,
+				656C5E061CC039AA00999879 /* health.png */,
+				656C5E071CC039AA00999879 /* heart.png */,
+				656C5E081CC039AA00999879 /* hpv.png */,
+				656C5E091CC039AA00999879 /* information.png */,
+				656C5E0A1CC039AA00999879 /* reports.png */,
+				656C5E0B1CC039AA00999879 /* return.png */,
+				656C5E0C1CC039AA00999879 /* save.png */,
 				816FB7CE1C8CF85D00AD40F2 /* checkedBox.png */,
 				816FB7CF1C8CF85D00AD40F2 /* emptyBox.png */,
 				818A9A431C8B581600874CA1 /* WHAM-Info.plist */,
@@ -234,17 +267,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656C5E111CC039AA00999879 /* information.png in Resources */,
 				818A9A461C8B581600874CA1 /* InfoPlist.strings in Resources */,
 				818A9A4E1C8B581600874CA1 /* Default.png in Resources */,
 				818A9A501C8B581600874CA1 /* Default@2x.png in Resources */,
 				818A9A521C8B581600874CA1 /* Default-568h@2x.png in Resources */,
 				818A9A551C8B581600874CA1 /* MainStoryboard_iPhone.storyboard in Resources */,
+				656C5E141CC039AA00999879 /* save.png in Resources */,
+				656C5E1A1CC039B000999879 /* upcoming.png in Resources */,
+				656C5E0E1CC039AA00999879 /* health.png in Resources */,
+				656C5E191CC039B000999879 /* splash.png in Resources */,
+				656C5E121CC039AA00999879 /* reports.png in Resources */,
 				818A9A5D1C8B581600874CA1 /* first.png in Resources */,
+				656C5E0F1CC039AA00999879 /* heart.png in Resources */,
+				656C5E101CC039AA00999879 /* hpv.png in Resources */,
+				656C5E131CC039AA00999879 /* return.png in Resources */,
 				818A9A5F1C8B581600874CA1 /* first@2x.png in Resources */,
 				818A9A641C8B581600874CA1 /* second.png in Resources */,
+				656C5E181CC039B000999879 /* settings.png in Resources */,
 				818A9A661C8B581600874CA1 /* second@2x.png in Resources */,
 				8188A7141C8BD4970029C913 /* DateCell.xib in Resources */,
 				816FB7D01C8CF85D00AD40F2 /* checkedBox.png in Resources */,
+				656C5E0D1CC039AA00999879 /* cancer.png in Resources */,
 				816FB7D11C8CF85D00AD40F2 /* emptyBox.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
