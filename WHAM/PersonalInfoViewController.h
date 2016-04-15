@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PersonalInfoTableViewController.h"
 
 @interface PersonalInfoViewController : UIViewController //<MyTableDelegate> // UIViewController <UITableViewDelegate>
 

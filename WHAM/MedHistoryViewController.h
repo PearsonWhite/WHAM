@@ -20,8 +20,15 @@
 @property IBOutlet UIButton* questionButton4_yes;
 @property IBOutlet UIButton* questionButton4_no;
 
+@property (strong, nonatomic) IBOutlet UILabel *labelDueToCancer;
+@property (strong, nonatomic) IBOutlet UILabel *labelDueToCancerYes;
+@property (strong, nonatomic) IBOutlet UILabel *labelDueToCancerNo;
+
+
 @property NSMutableArray* buttonArray;
 @property NSMutableArray* keysArray;
+
+
 
 - (IBAction)questionButtonPressed:(id)sender;
 

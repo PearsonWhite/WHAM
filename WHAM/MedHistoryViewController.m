@@ -96,6 +96,25 @@ NSDictionary* defaultsLocalDict = nil;
             }
         }
     }
+    
+    [self updateGUI];
+
+}
+
+- (void)updateGUI {
+    if ([[buttonArray objectAtIndex:5] isSelected]) {
+        [self.labelDueToCancer setHidden:FALSE];
+        [[buttonArray objectAtIndex:6] setHidden:FALSE];
+        [[buttonArray objectAtIndex:7] setHidden:FALSE];
+        [self.labelDueToCancerYes setHidden:FALSE];
+        [self.labelDueToCancerNo setHidden:FALSE];
+    } else {
+        [self.labelDueToCancer setHidden:TRUE];
+        [[buttonArray objectAtIndex:6] setHidden:TRUE];
+        [[buttonArray objectAtIndex:7] setHidden:TRUE];
+        [self.labelDueToCancerYes setHidden:TRUE];
+        [self.labelDueToCancerNo setHidden:TRUE];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,6 +171,9 @@ NSDictionary* defaultsLocalDict = nil;
         // deselect mutually exclusive option
         [[buttonArray objectAtIndex:([buttonArray indexOfObject:((UIButton*) sender)]-1)] setSelected:FALSE];
     }
+    
+    // update gui
+    [self updateGUI];
     
     /*
     NSLog(@"isHighlighted: %d", ((UIButton*)sender).isSelected);

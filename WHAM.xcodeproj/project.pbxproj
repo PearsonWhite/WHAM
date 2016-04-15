@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		816242D11CA0C58D00BEAC63 /* DateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D01CA0C58D00BEAC63 /* DateCell.m */; };
 		816242D41CA0C5E600BEAC63 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D31CA0C5E600BEAC63 /* constants.m */; };
 		816242D71CA0CEDE00BEAC63 /* LastProceduresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D61CA0CEDE00BEAC63 /* LastProceduresViewController.m */; };
 		816242DA1CA0CF1C00BEAC63 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D91CA0CF1C00BEAC63 /* DatePickerViewController.m */; };
@@ -17,8 +16,6 @@
 		816FB7CD1C8CE5F900AD40F2 /* FamilyHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816FB7CC1C8CE5F900AD40F2 /* FamilyHistoryViewController.m */; };
 		816FB7D01C8CF85D00AD40F2 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 816FB7CE1C8CF85D00AD40F2 /* checkedBox.png */; };
 		816FB7D11C8CF85D00AD40F2 /* emptyBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 816FB7CF1C8CF85D00AD40F2 /* emptyBox.png */; };
-		8188A70C1C8B92830029C913 /* PersonalInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8188A70B1C8B92830029C913 /* PersonalInfoTableViewController.m */; };
-		8188A7141C8BD4970029C913 /* DateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8188A7131C8BD4970029C913 /* DateCell.xib */; };
 		818A9A3C1C8B581600874CA1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818A9A3B1C8B581600874CA1 /* UIKit.framework */; };
 		818A9A3E1C8B581600874CA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818A9A3D1C8B581600874CA1 /* Foundation.framework */; };
 		818A9A401C8B581600874CA1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818A9A3F1C8B581600874CA1 /* CoreGraphics.framework */; };
@@ -39,8 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		816242CF1CA0C58D00BEAC63 /* DateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCell.h; sourceTree = "<group>"; };
-		816242D01CA0C58D00BEAC63 /* DateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCell.m; sourceTree = "<group>"; };
 		816242D21CA0C5E600BEAC63 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		816242D31CA0C5E600BEAC63 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
 		816242D51CA0CEDE00BEAC63 /* LastProceduresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastProceduresViewController.h; sourceTree = "<group>"; };
@@ -57,9 +52,6 @@
 		816FB7CC1C8CE5F900AD40F2 /* FamilyHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyHistoryViewController.m; sourceTree = "<group>"; };
 		816FB7CE1C8CF85D00AD40F2 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
 		816FB7CF1C8CF85D00AD40F2 /* emptyBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyBox.png; sourceTree = "<group>"; };
-		8188A70A1C8B92830029C913 /* PersonalInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoTableViewController.h; sourceTree = "<group>"; };
-		8188A70B1C8B92830029C913 /* PersonalInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoTableViewController.m; sourceTree = "<group>"; };
-		8188A7131C8BD4970029C913 /* DateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
 		818A9A381C8B581600874CA1 /* WHAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WHAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		818A9A3B1C8B581600874CA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		818A9A3D1C8B581600874CA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -149,11 +141,6 @@
 				818A9A611C8B581600874CA1 /* ReportViewController.m */,
 				816914471C8B601400498B72 /* PersonalInfoViewController.h */,
 				816914481C8B601400498B72 /* PersonalInfoViewController.m */,
-				8188A70A1C8B92830029C913 /* PersonalInfoTableViewController.h */,
-				8188A70B1C8B92830029C913 /* PersonalInfoTableViewController.m */,
-				8188A7131C8BD4970029C913 /* DateCell.xib */,
-				816242CF1CA0C58D00BEAC63 /* DateCell.h */,
-				816242D01CA0C58D00BEAC63 /* DateCell.m */,
 				816FB7C81C8CCE1600AD40F2 /* MedHistoryViewController.h */,
 				816FB7C91C8CCE1600AD40F2 /* MedHistoryViewController.m */,
 				816FB7CB1C8CE5F900AD40F2 /* FamilyHistoryViewController.h */,
@@ -243,7 +230,6 @@
 				818A9A5F1C8B581600874CA1 /* first@2x.png in Resources */,
 				818A9A641C8B581600874CA1 /* second.png in Resources */,
 				818A9A661C8B581600874CA1 /* second@2x.png in Resources */,
-				8188A7141C8BD4970029C913 /* DateCell.xib in Resources */,
 				816FB7D01C8CF85D00AD40F2 /* checkedBox.png in Resources */,
 				816FB7D11C8CF85D00AD40F2 /* emptyBox.png in Resources */,
 			);
@@ -262,10 +248,8 @@
 				818A9A621C8B581600874CA1 /* ReportViewController.m in Sources */,
 				816914491C8B601400498B72 /* PersonalInfoViewController.m in Sources */,
 				8169144C1C8B602100498B72 /* SettingsViewController.m in Sources */,
-				8188A70C1C8B92830029C913 /* PersonalInfoTableViewController.m in Sources */,
 				816FB7CA1C8CCE1600AD40F2 /* MedHistoryViewController.m in Sources */,
 				816FB7CD1C8CE5F900AD40F2 /* FamilyHistoryViewController.m in Sources */,
-				816242D11CA0C58D00BEAC63 /* DateCell.m in Sources */,
 				816242D41CA0C5E600BEAC63 /* constants.m in Sources */,
 				816242D71CA0CEDE00BEAC63 /* LastProceduresViewController.m in Sources */,
 				816242DA1CA0CF1C00BEAC63 /* DatePickerViewController.m in Sources */,
