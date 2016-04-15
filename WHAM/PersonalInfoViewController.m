@@ -20,6 +20,7 @@
 NSNumber* doesSmoke = nil;
 
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -64,6 +65,9 @@ NSNumber* doesSmoke = nil;
         DatePickerViewController * childViewController = (DatePickerViewController *) [segue destinationViewController];
         
         childViewController.pickerType = PickExamDateBDay;
+        childViewController.showLabelHPV = FALSE;
+        childViewController.showLabelAbnormal = FALSE;
+        childViewController.title = @"Set Birthday";
     }
     //[self.navigationController setNavigationBarHidden:FALSE];
     [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];

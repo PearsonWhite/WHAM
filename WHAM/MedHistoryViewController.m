@@ -151,9 +151,6 @@ NSDictionary* defaultsLocalDict = nil;
         // update defaultsLocalDict
         [defaultsLocalDict setValue:[NSNumber numberWithBool:YES] forKey:[keysArray objectAtIndex:[buttonArray indexOfObject:((UIButton*) sender)]]];
         
-        
-        
-        
         // select button
         [[buttonArray objectAtIndex:([buttonArray indexOfObject:((UIButton*) sender)])] setSelected:TRUE];
         

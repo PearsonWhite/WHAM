@@ -19,6 +19,9 @@
 @synthesize labelLastMammo, labelLastPap;
 
 PickViewType pickerToGoTo;
+bool showLabelHPV = false;
+bool showLabelAbnormalResults = false;
+NSString* childViewTitle = @"";
 
 
 
@@ -34,7 +37,7 @@ PickViewType pickerToGoTo;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+	showLabelHPV = FALSE;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,6 +65,7 @@ PickViewType pickerToGoTo;
     }
     
     [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
+    
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -70,6 +74,9 @@ PickViewType pickerToGoTo;
     if ([segueName isEqualToString: @"toUpdateDate"]) {
         DatePickerViewController * childViewController = (DatePickerViewController *) [segue destinationViewController];
         childViewController.pickerType = pickerToGoTo;
+        childViewController.showLabelHPV = showLabelHPV;
+        childViewController.showLabelAbnormal = showLabelAbnormalResults;
+        childViewController.title = childViewTitle;
     }
 }
 
@@ -81,11 +88,16 @@ PickViewType pickerToGoTo;
 
 - (IBAction)buttonUpdateLastPapPressed:(id)sender {
     pickerToGoTo = PickExamDatePap;
+    showLabelHPV = TRUE;
+    showLabelAbnormalResults = TRUE;
+    childViewTitle = @"Last Pap Smear";
     [self performSegueWithIdentifier:@"toUpdateDate" sender:self];
 }
 
 - (IBAction)buttonUpdateLastMammoPressed:(id)sender {
     pickerToGoTo = PickExamDateMammo;
+    showLabelAbnormalResults = TRUE;
+    childViewTitle = @"Last Mammogram";
     [self performSegueWithIdentifier:@"toUpdateDate" sender:self];
 }
 
