@@ -34,6 +34,16 @@ NSNumber* doesSmoke = nil;
 {
     [super viewDidLoad];
     
+    // setup checkboxes
+    [self.buttonSmokeYes setBackgroundImage:[UIImage imageNamed:@"emptyBox.png"]
+                      forState:UIControlStateNormal];
+    [self.buttonSmokeYes setBackgroundImage:[UIImage imageNamed:@"checkedBox.png"]
+                      forState:UIControlStateSelected];
+    [self.buttonSmokeNo setBackgroundImage:[UIImage imageNamed:@"emptyBox.png"]
+                      forState:UIControlStateNormal];
+    [self.buttonSmokeNo setBackgroundImage:[UIImage imageNamed:@"checkedBox.png"]
+                      forState:UIControlStateSelected];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
