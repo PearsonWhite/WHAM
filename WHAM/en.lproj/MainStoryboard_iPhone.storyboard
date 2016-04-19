@@ -31,7 +31,7 @@
                             <constraint firstItem="5lM-4X-vHQ" firstAttribute="top" secondItem="16" secondAttribute="top" constant="95" id="yLH-0F-EnL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
+                    <tabBarItem key="tabBarItem" title="Upcoming Exams" image="upcoming.png" id="7"/>
                     <navigationItem key="navigationItem" id="7hG-u5-9xk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -62,7 +62,7 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.98460728350000004" green="1" blue="0.82323677699999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Pb7-iJ-YjH" firstAttribute="trailing" secondItem="O5u-dy-SOQ" secondAttribute="trailing" type="default" id="EyP-56-xAM"/>
                             <constraint firstItem="wbV-xp-lQH" firstAttribute="centerX" secondItem="Pb7-iJ-YjH" secondAttribute="centerX" type="default" id="LF2-kk-DvW"/>
@@ -71,7 +71,7 @@
                             <constraint firstItem="Pb7-iJ-YjH" firstAttribute="leading" secondItem="O5u-dy-SOQ" secondAttribute="leading" type="default" id="nZt-hl-kxl"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="vSp-5g-WeW"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="vSp-5g-WeW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="view" destination="O5u-dy-SOQ" id="ee5-nI-B0p"/>
@@ -797,7 +797,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <scene sceneID="UbS-r7-N9e">
             <objects>
                 <navigationController title="Personal Info" definesPresentationContext="YES" id="cm1-vs-7IP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RLg-nA-JS3"/>
+                    <tabBarItem key="tabBarItem" title="Personal Info" image="information.png" id="RLg-nA-JS3"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="bVD-Cm-oHP">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
@@ -933,7 +933,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="Yfh-nP-iCO" firstAttribute="leading" secondItem="fE4-7F-AGv" secondAttribute="leading" type="default" id="vxT-iI-VIu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="o67-km-uyr"/>
+                    <tabBarItem key="tabBarItem" title="Personal Info" image="information.png" id="o67-km-uyr"/>
                     <navigationItem key="navigationItem" title="Personal Info" id="7fd-aq-QMi"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -957,7 +957,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <scene sceneID="STh-Eu-epv">
             <objects>
                 <navigationController title="Reports" definesPresentationContext="YES" id="SXk-Wv-E9I" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dxu-Au-tcd"/>
+                    <tabBarItem key="tabBarItem" title="Reports" image="reports.png" id="dxu-Au-tcd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uXA-nu-J4D">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1018,7 +1018,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="pQk-YE-lGP" firstAttribute="leading" secondItem="Mfm-jh-TgV" secondAttribute="leading" constant="85" id="wpo-uC-efB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="6"/>
+                    <tabBarItem key="tabBarItem" title="Reports" image="reports.png" id="6"/>
                     <navigationItem key="navigationItem" id="Twe-5G-FrF"/>
                     <connections>
                         <outlet property="buttonWhateverpressed" destination="ed9-9E-fhK" id="NCn-xx-GsJ"/>
@@ -1053,8 +1053,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </scenes>
     <resources>
         <image name="emptyBox.png" width="20" height="20"/>
-        <image name="first" width="16" height="16"/>
-        <image name="second" width="16" height="16"/>
+        <image name="information.png" width="32" height="32"/>
+        <image name="reports.png" width="32" height="32"/>
+        <image name="settings.png" width="32" height="32"/>
+        <image name="upcoming.png" width="32" height="32"/>
     </resources>
     <classes>
         <class className="DatePickerViewController" superclassName="UIViewController">
