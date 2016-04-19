@@ -10,15 +10,10 @@
 
 
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <UIAlertViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UIButton *buttonResetInformation;
 
-
-@property (strong, nonatomic) IBOutlet UIButton *testButton;
-
-
-
-- (IBAction)testButtonPressed:(id)sender;
-
+- (IBAction)buttonResetInformationPressed:(id)sender;
 
 @end

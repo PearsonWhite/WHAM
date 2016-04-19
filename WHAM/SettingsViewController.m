@@ -14,7 +14,7 @@
 
 @implementation SettingsViewController
 
-@synthesize testButton;
+@synthesize buttonResetInformation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,10 +29,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.navigationController performSegueWithIdentifier:@"test" sender:self];
-    
-    
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -41,19 +37,10 @@
 }
 
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [testButton setBackgroundColor:[UIColor redColor]];
+    
 }
-
-
-- (IBAction)testButtonPressed:(id)sender {
-    NSLog(@":dafsdfa");
-    [self performSegueWithIdentifier:@"testSegue" sender:self];
-}
-
-
 
 
 - (void)didReceiveMemoryWarning
@@ -61,5 +48,29 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)buttonResetInformationPressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Are you sure? This action cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Clear", nil];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    // the user clicked CLEAR
+    if (buttonIndex == 1) {
+        [self clearData];
+    }
+}
+
+
+- (void)clearData {
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+}
+
+
+
+
+
+
 
 @end

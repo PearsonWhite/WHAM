@@ -51,29 +51,48 @@
                                     <navigationItem title="Settings" id="dXC-cV-FgR"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbV-xp-lQH">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="reset">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbV-xp-lQH">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="187" id="MGN-fd-dTb"/>
+                                    <constraint firstAttribute="height" constant="36" id="p3h-hO-6aN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="Reset information" backgroundImage="emptyBox.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonResetInformationPressed:" destination="0w8-Sl-GxB" eventType="touchUpInside" id="3Ft-Hg-JkU"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Recommendations from the United States Preventative Services Task Force" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="220" translatesAutoresizingMaskIntoConstraints="NO" id="hni-FB-iNN">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="MBP-bS-v6e"/>
+                                    <constraint firstAttribute="height" constant="173" id="exP-1D-jkW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hni-FB-iNN" secondAttribute="bottom" constant="64" id="72M-fd-80Y"/>
                             <constraint firstItem="Pb7-iJ-YjH" firstAttribute="trailing" secondItem="O5u-dy-SOQ" secondAttribute="trailing" type="default" id="EyP-56-xAM"/>
-                            <constraint firstItem="wbV-xp-lQH" firstAttribute="centerX" secondItem="Pb7-iJ-YjH" secondAttribute="centerX" type="default" id="LF2-kk-DvW"/>
                             <constraint firstItem="Pb7-iJ-YjH" firstAttribute="top" secondItem="O5u-dy-SOQ" secondAttribute="top" type="default" id="S5S-dD-d9L"/>
-                            <constraint firstItem="wbV-xp-lQH" firstAttribute="top" secondItem="O5u-dy-SOQ" secondAttribute="top" constant="124" id="lK0-e3-XVX"/>
+                            <constraint firstItem="wbV-xp-lQH" firstAttribute="centerX" secondItem="hni-FB-iNN" secondAttribute="centerX" type="default" id="gVO-yl-28I"/>
+                            <constraint firstItem="wbV-xp-lQH" firstAttribute="centerX" secondItem="Pb7-iJ-YjH" secondAttribute="centerX" type="default" id="i60-JS-gVQ"/>
                             <constraint firstItem="Pb7-iJ-YjH" firstAttribute="leading" secondItem="O5u-dy-SOQ" secondAttribute="leading" type="default" id="nZt-hl-kxl"/>
+                            <constraint firstItem="wbV-xp-lQH" firstAttribute="top" secondItem="O5u-dy-SOQ" secondAttribute="top" constant="109" id="ueT-wD-0pz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="vSp-5g-WeW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="buttonResetInformation" destination="wbV-xp-lQH" id="lyd-n4-Ggy"/>
                         <outlet property="view" destination="O5u-dy-SOQ" id="ee5-nI-B0p"/>
                     </connections>
                 </viewController>
@@ -1156,8 +1175,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
+                <relationship kind="action" name="buttonResetInformationPressed:"/>
                 <relationship kind="action" name="testButtonPressed:"/>
-                <relationship kind="outlet" name="testButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="buttonResetInformation" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="UpcomingViewController" superclassName="UIViewController">
