@@ -17,6 +17,14 @@
 @property IBOutlet UIButton* questionButton2_Sister;
 @property IBOutlet UIButton* questionButton2_Daughter;
 
+@property (strong, nonatomic) IBOutlet UILabel *labelWhichMembers;
+
+@property (strong, nonatomic) IBOutlet UILabel *labelMother;
+@property (strong, nonatomic) IBOutlet UILabel *labelSister;
+@property (strong, nonatomic) IBOutlet UILabel *labelDaughter;
+
+
+
 
 @property NSMutableArray* buttonArray;
 @property NSMutableArray* keysArray;

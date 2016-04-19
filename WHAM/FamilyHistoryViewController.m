@@ -86,12 +86,29 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
+    
+    // hide the dynamic content
+    [self showDynamicGUI:FALSE];
+    
     [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
     [super viewWillDisappear:animated];
+}
+
+- (void)showDynamicGUI:(BOOL)shouldShow {
+
+    [self.labelWhichMembers setHidden:!shouldShow];
+    [self.labelDaughter setHidden:!shouldShow];
+    [self.labelMother setHidden:!shouldShow];
+    [self.labelSister setHidden:!shouldShow];
+
+    [self.questionButton2_Mother setHidden:!shouldShow];
+    [self.questionButton2_Daughter setHidden:!shouldShow];
+    [self.questionButton2_Sister setHidden:!shouldShow];
+    
 }
 
 - (IBAction)questionButtonPressed:(id)sender {
@@ -109,16 +126,22 @@
             // deselect mutually exclusive option
             [[buttonArray objectAtIndex:(index+1)] setSelected:FALSE];
             
+            [self showDynamicGUI:TRUE];
+            
             break;
         } case 1: {
             // NO
             [defaults setValue:[NSNumber numberWithBool:NO] forKey:[keysArray objectAtIndex:index]];
             
             // select button
-            [(UIButton*)sender setSelected:FALSE];
+            [(UIButton*)sender setSelected:TRUE];
             
             // deselect mutually exclusive option
-            [[buttonArray objectAtIndex:(index-1)] setSelected:TRUE];
+            [[buttonArray objectAtIndex:(index-1)] setSelected:FALSE];
+            
+            [self showDynamicGUI:FALSE];
+            
+            break;
         } default: {
             // other buttons don't require deselecting a mutually exlusive option
             [(UIButton*)sender setSelected:![(UIButton*)sender isSelected]];

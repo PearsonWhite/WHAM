@@ -12,4 +12,12 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+#warning - todo:
+/*
+
+ No and Yes buttons should be switched in GUI (Yes is on the LHS in the Android version
+ 
+ 
+*/
+
 @end
