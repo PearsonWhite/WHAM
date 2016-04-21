@@ -17,7 +17,7 @@
 
 @implementation PersonalInfoViewController
 
-NSNumber* doesSmoke = nil;
+BOOL doesSmoke;
 
 
 
@@ -59,12 +59,14 @@ NSNumber* doesSmoke = nil;
     
     // set check buttons (smoke)
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
-    if(![[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_SMOKES]){
-        doesSmoke = [defaults valueForKey:KEY_SMOKES];
-        if ([doesSmoke boolValue]) {
-            [self.buttonSmokeNo setSelected:TRUE];
-        } else {
+    if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_SMOKES]){
+        doesSmoke = [[defaults valueForKey:KEY_SMOKES] boolValue];
+        if (doesSmoke) {
+            [self.buttonSmokeYes setSelected:TRUE];
             [self.buttonSmokeNo setSelected:FALSE];
+        } else {
+            [self.buttonSmokeYes setSelected:FALSE];
+            [self.buttonSmokeNo setSelected:TRUE];
         }
     } else {
         [self.buttonSmokeNo setSelected:FALSE];
@@ -95,8 +97,8 @@ NSNumber* doesSmoke = nil;
 
 - (IBAction)buttonSavePressed:(id)sender {
     // update saved values
-    NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
-    [defaults setObject:doesSmoke forKey:KEY_SMOKES];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:doesSmoke] forKey:KEY_SMOKES];
 }
 
 - (IBAction)buttonEnterBirthdayPressed:(id)sender {
@@ -117,7 +119,7 @@ NSNumber* doesSmoke = nil;
 
 - (IBAction)buttonSmokeYesPressed:(id)sender {
     // update local bool
-    doesSmoke = [NSNumber numberWithBool:TRUE];
+    doesSmoke = TRUE;
     
     // update buttons
     [self.buttonSmokeYes setSelected:TRUE];
@@ -126,7 +128,7 @@ NSNumber* doesSmoke = nil;
 
 - (IBAction)buttonSmokeNoPressed:(id)sender {
     // update local bool
-    doesSmoke = [NSNumber numberWithBool:FALSE];
+    doesSmoke = FALSE;
     
     // update buttons
     [self.buttonSmokeYes setSelected:FALSE];
