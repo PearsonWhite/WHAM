@@ -19,8 +19,8 @@
 @synthesize labelLastMammo, labelLastPap;
 
 PickViewType pickerToGoTo;
-bool showLabelHPV = false;
-bool showLabelAbnormalResults = false;
+bool showLabelHPV = FALSE;
+bool showLabelAbnormalResults = FALSE;
 NSString* childViewTitle = @"";
 
 
@@ -96,6 +96,7 @@ NSString* childViewTitle = @"";
 
 - (IBAction)buttonUpdateLastMammoPressed:(id)sender {
     pickerToGoTo = PickExamDateMammo;
+    showLabelHPV = FALSE;
     showLabelAbnormalResults = TRUE;
     childViewTitle = @"Last Mammogram";
     [self performSegueWithIdentifier:@"toUpdateDate" sender:self];

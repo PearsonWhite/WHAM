@@ -44,6 +44,14 @@ NSNumber* doesSmoke = nil;
     [self.buttonSmokeNo setBackgroundImage:[UIImage imageNamed:@"checkedBox.png"]
                       forState:UIControlStateSelected];
     
+    
+    // save button
+    UIBarButtonItem *buttonSave = [[UIBarButtonItem alloc] initWithTitle:@"Save"
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(buttonSavePressed:)];
+    self.navigationItem.rightBarButtonItem = buttonSave;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {

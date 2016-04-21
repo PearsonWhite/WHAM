@@ -47,6 +47,10 @@ NSString* keyForDefaults;
 - (void)viewWillAppear:(BOOL)animated {
     
     
+    
+    
+    
+    
     [self.buttonHPVno setBackgroundImage:[UIImage imageNamed:@"emptyBox.png"]
                                     forState:UIControlStateNormal];
     [self.buttonHPVyes setBackgroundImage:[UIImage imageNamed:@"emptyBox.png"]
@@ -117,7 +121,6 @@ NSString* keyForDefaults;
     self.navigationItem.rightBarButtonItem = buttonSave;
     
     
-    
     [super viewWillAppear:animated];
     
 }
@@ -172,9 +175,11 @@ typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_Q
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:self.datePicker.date forKey:keyForDefaults];
         if (showLabelHPV ) {
+            NSLog(@"%@",[NSNumber numberWithBool:self.buttonHPVyes.isSelected] );
             [defaults setObject:[NSNumber numberWithBool:self.buttonHPVyes.isSelected] forKey:KEY_HPV_TESTED];
         }
         if (showLabelAbnormal) {
+            NSLog(@"%@",[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] );
             [defaults setObject:[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] forKey:KEY_ABNORMAL_RESULTS];
         }
         

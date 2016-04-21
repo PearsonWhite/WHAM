@@ -15,7 +15,7 @@ NSString *const KEY_HPV_VACCINATED = @"agsa";
 NSString *const KEY_HAD_HISTERECTOMY = @"asdgk";
 NSString *const KEY_HISTERECTOMY_FOR_CANCER = @"rasg";
 
-NSString *const KEY_FAMILY_HISTORY_CANCER = @"dsfaesrtdff";
+NSString *const KEY_FAMILY_HISTORY_CANCER = @"famhiscan";
 NSString *const KEY_MOTHER_CANCER = @"rughjfdk";
 NSString *const KEY_SISTER_CANCER = @"uaidfiaisd";
 NSString *const KEY_DAUGHTER_CANCER = @"uaidfiaisd";

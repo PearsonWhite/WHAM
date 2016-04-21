@@ -19,6 +19,8 @@
 @synthesize buttonArray;
 @synthesize questionButton1_no, questionButton1_yes, questionButton2_Daughter, questionButton2_Mother, questionButton2_Sister;
 
+NSDictionary* defaultsLocalDictFH = nil;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,6 +33,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    defaultsLocalDictFH = [[NSMutableDictionary alloc] init];
 	
     self.navigationController.navigationBarHidden = false;
     
@@ -41,7 +45,7 @@
                         questionButton1_yes, questionButton1_no,
                         questionButton2_Mother, questionButton2_Sister, questionButton2_Daughter,
                         nil];
-    self.keysArray = [[NSMutableArray alloc] initWithObjects:KEY_FAMILY_HISTORY_CANCER, KEY_MOTHER_CANCER, KEY_SISTER_CANCER, KEY_DAUGHTER_CANCER, nil];
+    self.keysArray = [[NSMutableArray alloc] initWithObjects:@"Placeholder", KEY_FAMILY_HISTORY_CANCER, KEY_MOTHER_CANCER, KEY_SISTER_CANCER, KEY_DAUGHTER_CANCER, nil];
     
     
     // settup button properties
@@ -50,9 +54,7 @@
                           forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageNamed:@"checkedBox.png"]
                           forState:UIControlStateSelected];
-        [button setBackgroundImage:[UIImage imageNamed:@"checkedBox.png"]
-                          forState:UIControlStateHighlighted];
-        button.adjustsImageWhenHighlighted=YES;
+        
         [button addTarget:self action:@selector(questionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -60,35 +62,50 @@
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
     
     
-    if(![[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_HISTORY_HPV]){
+    if(![[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_FAMILY_HISTORY_CANCER]){
         // for now we assume that all fields are filled out or none are
+        // looks like none are filled
         for (UIButton* button in buttonArray) {
             [button setSelected:FALSE];
         }
     } else {
         for (NSUInteger index = 0; index < [buttonArray count]; index+=1) {
             // questionably set buttons to correct highlights
-            NSLog(@"KEY: %d  VALUE: %d", index, ![[keysArray objectAtIndex:index] boolValue]);
+            NSLog(@"KEY: %d  VALUE: %d", index, [[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]);
             if (index == 0) {
-                if ([[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]) {
+                if ([[defaults objectForKey:[keysArray objectAtIndex:index+1]] boolValue]) {
+                    // yes
                     [[buttonArray objectAtIndex:index] setSelected:TRUE];
                     [[buttonArray objectAtIndex:index+1] setSelected:FALSE];
+                    [self showDynamicGUI:TRUE];
                 } else {
+                    // no
                     [[buttonArray objectAtIndex:index] setSelected:FALSE];
-                    [[buttonArray objectAtIndex:index] setSelected:TRUE];
+                    [[buttonArray objectAtIndex:index+1] setSelected:TRUE];
+                    [self showDynamicGUI:FALSE];
                 }
-            } else if (index > 1) {
-                [[buttonArray objectAtIndex:index] setSelected:[[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]];
+            } else {
+                if (index > 1) {
+                    [[buttonArray objectAtIndex:index] setSelected:[[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]];
+                }
+                NSLog(@"%@ %@", [keysArray objectAtIndex:index], [defaults objectForKey:[keysArray objectAtIndex:index]]);
+                [defaultsLocalDictFH setValue:[defaults objectForKey:[keysArray objectAtIndex:index]] forKey:[keysArray objectAtIndex:index]];
             }
         }
+        
     }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
     
-    // hide the dynamic content
-    [self showDynamicGUI:FALSE];
+    // save button
+    UIBarButtonItem *buttonSave = [[UIBarButtonItem alloc] initWithTitle:@"Save"
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(buttonSavePressed:)];
+    self.navigationItem.rightBarButtonItem = buttonSave;
+    
     
     [super viewWillAppear:animated];
 }
@@ -111,6 +128,16 @@
     
 }
 
+- (IBAction)buttonSavePressed:(id)sender {
+    // standardUserDefaults = defaultsLocalDict
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    for (NSString* key in defaultsLocalDictFH) {
+        NSLog(@"%@ %@", key, [defaultsLocalDictFH valueForKey:key]);
+        [defaults setObject:[defaultsLocalDictFH valueForKey:key] forKey:key];
+    }
+    [self.navigationController popViewControllerAnimated:TRUE];
+}
+
 - (IBAction)questionButtonPressed:(id)sender {
     NSLog(@"Button index: %d", [buttonArray indexOfObject:(UIButton *)sender]);
     NSUInteger index = [buttonArray indexOfObject:(UIButton *)sender];
@@ -118,7 +145,7 @@
     switch (index) {
         case 0: {
             // YES
-            [defaults setValue:[NSNumber numberWithBool:YES] forKey:[keysArray objectAtIndex:index]];
+            [defaultsLocalDictFH setValue:[NSNumber numberWithBool:YES] forKey:[keysArray objectAtIndex:index+1]];
             
             // select button
             [(UIButton*)sender setSelected:TRUE];
@@ -131,7 +158,7 @@
             break;
         } case 1: {
             // NO
-            [defaults setValue:[NSNumber numberWithBool:NO] forKey:[keysArray objectAtIndex:index]];
+            [defaultsLocalDictFH setValue:[NSNumber numberWithBool:NO] forKey:[keysArray objectAtIndex:index]];
             
             // select button
             [(UIButton*)sender setSelected:TRUE];

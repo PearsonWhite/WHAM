@@ -1103,7 +1103,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="FamilyHistoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FamilyHistoryViewController.h"/>
             <relationships>
-                <relationship kind="action" name="questionButtonPressed:"/>
                 <relationship kind="outlet" name="labelDaughter" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelMother" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelSister" candidateClass="UILabel"/>
@@ -1129,7 +1128,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="MedHistoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MedHistoryViewController.h"/>
             <relationships>
-                <relationship kind="action" name="buttonSavePressed:"/>
                 <relationship kind="action" name="questionButtonPressed:"/>
                 <relationship kind="outlet" name="labelDueToCancer" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelDueToCancerNo" candidateClass="UILabel"/>
@@ -1154,7 +1152,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="buttonFamilyHistoryPressed:"/>
                 <relationship kind="action" name="buttonLastProceduresPressed:"/>
                 <relationship kind="action" name="buttonPastMedHistoryPressed:"/>
-                <relationship kind="action" name="buttonSavePressed:"/>
                 <relationship kind="action" name="buttonSmokeNoPressed:"/>
                 <relationship kind="action" name="buttonSmokeYesPressed:"/>
                 <relationship kind="outlet" name="buttonEnterBirthday" candidateClass="UIButton"/>
@@ -1168,7 +1165,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="ReportViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportViewController.h"/>
             <relationships>
-                <relationship kind="action" name="buttontestpressed:"/>
                 <relationship kind="outlet" name="buttonWhateverpressed" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -1176,7 +1172,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="buttonResetInformationPressed:"/>
-                <relationship kind="action" name="testButtonPressed:"/>
                 <relationship kind="outlet" name="buttonResetInformation" candidateClass="UIButton"/>
             </relationships>
         </class>

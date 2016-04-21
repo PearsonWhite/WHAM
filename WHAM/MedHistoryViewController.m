@@ -19,7 +19,7 @@
 
 @synthesize buttonArray, keysArray;
 
-NSDictionary* defaultsLocalDict = nil;
+NSDictionary* defaultsLocalDictMH = nil;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,7 +55,7 @@ NSDictionary* defaultsLocalDict = nil;
                       KEY_HISTERECTOMY_FOR_CANCER,
                       KEY_HISTERECTOMY_FOR_CANCER, nil];
     
-    defaultsLocalDict = [[NSMutableDictionary alloc] init];
+    defaultsLocalDictMH = [[NSMutableDictionary alloc] init];
     
     
 }
@@ -97,6 +97,13 @@ NSDictionary* defaultsLocalDict = nil;
         }
     }
     
+    // save button
+    UIBarButtonItem *buttonSave = [[UIBarButtonItem alloc] initWithTitle:@"Save"
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(buttonSavePressed:)];
+    self.navigationItem.rightBarButtonItem = buttonSave;
+    
     [self updateGUI];
 
 }
@@ -132,9 +139,10 @@ NSDictionary* defaultsLocalDict = nil;
 - (IBAction)buttonSavePressed:(id)sender {
     // standardUserDefaults = defaultsLocalDict
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    for (NSString* key in defaultsLocalDict) {
-        [defaults setObject:[defaultsLocalDict valueForKey:key] forKey:key];
+    for (NSString* key in defaultsLocalDictMH) {
+        [defaults setObject:[defaultsLocalDictMH valueForKey:key] forKey:key];
     }
+    [self.navigationController popViewControllerAnimated:TRUE];
 }
 
 
@@ -149,7 +157,7 @@ NSDictionary* defaultsLocalDict = nil;
         // YES button
         
         // update defaultsLocalDict
-        [defaultsLocalDict setValue:[NSNumber numberWithBool:YES] forKey:[keysArray objectAtIndex:[buttonArray indexOfObject:((UIButton*) sender)]]];
+        [defaultsLocalDictMH setValue:[NSNumber numberWithBool:YES] forKey:[keysArray objectAtIndex:[buttonArray indexOfObject:((UIButton*) sender)]]];
         
         // select button
         [[buttonArray objectAtIndex:([buttonArray indexOfObject:((UIButton*) sender)])] setSelected:TRUE];
@@ -160,7 +168,7 @@ NSDictionary* defaultsLocalDict = nil;
         // NO button
         
         // update defaultsLocalDict
-        [defaultsLocalDict setValue:[NSNumber numberWithBool:NO] forKey:[keysArray objectAtIndex:[buttonArray indexOfObject:((UIButton*) sender)]]];
+        [defaultsLocalDictMH setValue:[NSNumber numberWithBool:NO] forKey:[keysArray objectAtIndex:[buttonArray indexOfObject:((UIButton*) sender)]]];
         
         // select button
         [[buttonArray objectAtIndex:([buttonArray indexOfObject:((UIButton*) sender)])] setSelected:TRUE];

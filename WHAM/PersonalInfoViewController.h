@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonalInfoViewController : UIViewController //<MyTableDelegate> // UIViewController <UITableViewDelegate>
+@interface PersonalInfoViewController : UIViewController
 
 
 @property (strong, nonatomic) IBOutlet UIButton *buttonEnterBirthday;
