@@ -28,6 +28,8 @@
 		81736A221CC6E3770041DD24 /* reports.png in Resources */ = {isa = PBXBuildFile; fileRef = 81736A211CC6E3770041DD24 /* reports.png */; };
 		81736A251CC6E4180041DD24 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 81736A231CC6E4180041DD24 /* information.png */; };
 		81736A261CC6E4180041DD24 /* upcoming.png in Resources */ = {isa = PBXBuildFile; fileRef = 81736A241CC6E4180041DD24 /* upcoming.png */; };
+		818A47FF1CC968E2006BA0B2 /* GeneratedReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818A47FE1CC968E2006BA0B2 /* GeneratedReportViewController.m */; };
+		818A48021CC9731E006BA0B2 /* SuggestedLinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818A48011CC9731E006BA0B2 /* SuggestedLinksViewController.m */; };
 		818A9A3C1C8B581600874CA1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818A9A3B1C8B581600874CA1 /* UIKit.framework */; };
 		818A9A3E1C8B581600874CA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818A9A3D1C8B581600874CA1 /* Foundation.framework */; };
 		818A9A401C8B581600874CA1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818A9A3F1C8B581600874CA1 /* CoreGraphics.framework */; };
@@ -40,7 +42,6 @@
 		818A9A551C8B581600874CA1 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818A9A531C8B581600874CA1 /* MainStoryboard_iPhone.storyboard */; };
 		818A9A5B1C8B581600874CA1 /* UpcomingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818A9A5A1C8B581600874CA1 /* UpcomingViewController.m */; };
 		818A9A621C8B581600874CA1 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818A9A611C8B581600874CA1 /* ReportViewController.m */; };
-		818B66891CB89B9300B058B4 /* ReportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818B66881CB89B9300B058B4 /* ReportsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,10 @@
 		81736A211CC6E3770041DD24 /* reports.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reports.png; sourceTree = "<group>"; };
 		81736A231CC6E4180041DD24 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
 		81736A241CC6E4180041DD24 /* upcoming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upcoming.png; sourceTree = "<group>"; };
+		818A47FD1CC968E2006BA0B2 /* GeneratedReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneratedReportViewController.h; sourceTree = "<group>"; };
+		818A47FE1CC968E2006BA0B2 /* GeneratedReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedReportViewController.m; sourceTree = "<group>"; };
+		818A48001CC9731E006BA0B2 /* SuggestedLinksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestedLinksViewController.h; sourceTree = "<group>"; };
+		818A48011CC9731E006BA0B2 /* SuggestedLinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestedLinksViewController.m; sourceTree = "<group>"; };
 		818A9A381C8B581600874CA1 /* WHAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WHAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		818A9A3B1C8B581600874CA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		818A9A3D1C8B581600874CA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,8 +95,6 @@
 		818A9A5A1C8B581600874CA1 /* UpcomingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpcomingViewController.m; sourceTree = "<group>"; };
 		818A9A601C8B581600874CA1 /* ReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		818A9A611C8B581600874CA1 /* ReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
-		818B66871CB89B9300B058B4 /* ReportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportsViewController.h; sourceTree = "<group>"; };
-		818B66881CB89B9300B058B4 /* ReportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +167,6 @@
 				818A9A4A1C8B581600874CA1 /* AppDelegate.h */,
 				818A9A4B1C8B581600874CA1 /* AppDelegate.m */,
 				818A9A531C8B581600874CA1 /* MainStoryboard_iPhone.storyboard */,
-				818B66871CB89B9300B058B4 /* ReportsViewController.h */,
-				818B66881CB89B9300B058B4 /* ReportsViewController.m */,
 				816242D81CA0CF1C00BEAC63 /* DatePickerViewController.h */,
 				816242D91CA0CF1C00BEAC63 /* DatePickerViewController.m */,
 				816242D51CA0CEDE00BEAC63 /* LastProceduresViewController.h */,
@@ -174,6 +175,10 @@
 				818A9A5A1C8B581600874CA1 /* UpcomingViewController.m */,
 				818A9A601C8B581600874CA1 /* ReportViewController.h */,
 				818A9A611C8B581600874CA1 /* ReportViewController.m */,
+				818A47FD1CC968E2006BA0B2 /* GeneratedReportViewController.h */,
+				818A47FE1CC968E2006BA0B2 /* GeneratedReportViewController.m */,
+				818A48001CC9731E006BA0B2 /* SuggestedLinksViewController.h */,
+				818A48011CC9731E006BA0B2 /* SuggestedLinksViewController.m */,
 				816914471C8B601400498B72 /* PersonalInfoViewController.h */,
 				816914481C8B601400498B72 /* PersonalInfoViewController.m */,
 				816FB7C81C8CCE1600AD40F2 /* MedHistoryViewController.h */,
@@ -293,7 +298,8 @@
 				816242D41CA0C5E600BEAC63 /* constants.m in Sources */,
 				816242D71CA0CEDE00BEAC63 /* LastProceduresViewController.m in Sources */,
 				816242DA1CA0CF1C00BEAC63 /* DatePickerViewController.m in Sources */,
-				818B66891CB89B9300B058B4 /* ReportsViewController.m in Sources */,
+				818A47FF1CC968E2006BA0B2 /* GeneratedReportViewController.m in Sources */,
+				818A48021CC9731E006BA0B2 /* SuggestedLinksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

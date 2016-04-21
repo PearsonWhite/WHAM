@@ -29,4 +29,22 @@ NSString *const KEY_LAST_PAP_DATE = @"bnjfbnjbf";
 NSString *const KEY_ABNORMAL_RESULTS = @"JFLJIJ";
 NSString *const KEY_HPV_TESTED = @"UIUIUI";
 
+
+NSString *const LINKS_ARRAY[] = {
+    @"link1",
+    @"link2",
+    @"link3"
+};
+
+uint const LINKS_ARRAY_COUNT = 3;
+
+
+
+
+
+
+
+
+
+
 @end

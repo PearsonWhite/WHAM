@@ -10,5 +10,11 @@
 
 @interface ReportViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIButton *buttonWhateverpressed;
+- (IBAction)buttonGeneratePapSmearReportPressed:(id)sender;
+
+- (IBAction)buttonGenerateMammogramReportPressed:(id)sender;
+
+- (IBAction)buttonSuggestedLinkesPressed:(id)sender;
+
+
 @end

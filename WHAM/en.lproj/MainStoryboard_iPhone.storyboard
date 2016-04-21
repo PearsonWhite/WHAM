@@ -9,7 +9,7 @@
             <objects>
                 <viewController title="Upcoming Exams" id="2" customClass="UpcomingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Next Pap Smear date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lM-4X-vHQ">
@@ -43,7 +43,7 @@
             <objects>
                 <viewController title="Settings" id="0w8-Sl-GxB" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O5u-dy-SOQ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="blackOpaque" translatesAutoresizingMaskIntoConstraints="NO" id="Pb7-iJ-YjH">
@@ -100,12 +100,12 @@
             </objects>
             <point key="canvasLocation" x="643" y="-880"/>
         </scene>
-        <!--Report View Controller-->
+        <!--Generated Report View Controller - Generated-->
         <scene sceneID="5DE-gb-Bvh">
             <objects>
-                <viewController id="sIr-51-9CW" customClass="ReportViewController" sceneMemberID="viewController">
+                <viewController title="Generated" id="sIr-51-9CW" customClass="GeneratedReportViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cjQ-LA-HsL">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -113,14 +113,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvA-fq-oXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1721" y="-693"/>
+            <point key="canvasLocation" x="1661" y="-1086"/>
+        </scene>
+        <!--Suggested Links View Controller - Suggested Links-->
+        <scene sceneID="DZc-W3-uZP">
+            <objects>
+                <viewController title="Suggested Links" id="Jyd-L2-ZEl" customClass="SuggestedLinksViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0ES-P4-tn3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bjR-IN-9G1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hjj-CC-BF8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1695" y="-529"/>
         </scene>
         <!--Last Procedures View Controller - Date of Last Procedures-->
         <scene sceneID="h4z-ae-zO1">
             <objects>
                 <viewController title="Date of Last Procedures" id="ZFK-Jf-mNH" customClass="LastProceduresViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SxN-jN-uXM">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfG-uK-HmF">
@@ -222,7 +237,7 @@
             <objects>
                 <viewController id="omx-nu-cWB" customClass="DatePickerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2C2-m7-F6t">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TcF-Od-iDL">
@@ -416,7 +431,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController title="Family History" id="pd0-Uq-84n" customClass="FamilyHistoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VId-4u-k8z">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Does your family have a history of Breast Cancer?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="309" translatesAutoresizingMaskIntoConstraints="NO" id="wJo-wb-yHd">
@@ -563,7 +578,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController title="Medical History" id="fpA-Sj-HWQ" customClass="MedHistoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KVK-0e-iDo">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Do you have a history of HPV?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEk-Ma-kWN">
@@ -835,7 +850,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController title="Personal Info" id="q6S-tD-vUc" customClass="PersonalInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wgf-59-p6k">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGR-1x-Rnv">
@@ -991,7 +1006,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <navigationController title="Reports" definesPresentationContext="YES" id="SXk-Wv-E9I" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Reports" image="reports.png" id="dxu-Au-tcd"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uXA-nu-J4D">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackTranslucent"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackTranslucent" id="uXA-nu-J4D">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -1007,7 +1024,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <objects>
                 <viewController title="Reports" id="3" customClass="ReportViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mfm-jh-TgV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed9-9E-fhK">
@@ -1019,6 +1036,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonGeneratePapSmearReportPressed:" destination="3" eventType="touchUpInside" id="SiL-yi-WYL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNc-Ey-I1D">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1029,6 +1049,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonGenerateMammogramReportPressed:" destination="3" eventType="touchUpInside" id="VNO-fM-adB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQk-YE-lGP">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -1039,23 +1062,26 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonSuggestedLinkesPressed:" destination="3" eventType="touchUpInside" id="HtZ-i3-ydZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ed9-9E-fhK" firstAttribute="centerX" secondItem="Mfm-jh-TgV" secondAttribute="centerX" type="default" id="2R1-of-qwn"/>
+                            <constraint firstItem="VNc-Ey-I1D" firstAttribute="top" secondItem="Mfm-jh-TgV" secondAttribute="top" constant="162" id="34m-ap-cBQ"/>
+                            <constraint firstItem="pQk-YE-lGP" firstAttribute="centerX" secondItem="VNc-Ey-I1D" secondAttribute="centerX" type="default" id="6oI-kK-DIO"/>
+                            <constraint firstAttribute="bottom" secondItem="pQk-YE-lGP" secondAttribute="bottom" constant="82" id="8P4-Jp-amW"/>
                             <constraint firstItem="ed9-9E-fhK" firstAttribute="centerX" secondItem="VNc-Ey-I1D" secondAttribute="centerX" type="default" id="Ou0-5l-Iuc"/>
-                            <constraint firstAttribute="bottom" secondItem="pQk-YE-lGP" secondAttribute="bottom" constant="165" id="QuJ-zH-lcC"/>
                             <constraint firstItem="ed9-9E-fhK" firstAttribute="top" secondItem="Mfm-jh-TgV" secondAttribute="top" constant="72" id="Zqq-qh-mAz"/>
-                            <constraint firstItem="VNc-Ey-I1D" firstAttribute="top" secondItem="Mfm-jh-TgV" secondAttribute="top" constant="180" id="cpF-BR-eyV"/>
-                            <constraint firstItem="pQk-YE-lGP" firstAttribute="leading" secondItem="Mfm-jh-TgV" secondAttribute="leading" constant="85" id="wpo-uC-efB"/>
+                            <constraint firstItem="pQk-YE-lGP" firstAttribute="centerX" secondItem="Mfm-jh-TgV" secondAttribute="centerX" type="default" id="zaR-Ey-Cle"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Reports" image="reports.png" id="6"/>
                     <navigationItem key="navigationItem" id="Twe-5G-FrF"/>
                     <connections>
-                        <outlet property="buttonWhateverpressed" destination="ed9-9E-fhK" id="NCn-xx-GsJ"/>
-                        <segue destination="sIr-51-9CW" kind="push" identifier="toReportsController" id="hZ3-Ik-hZL"/>
+                        <segue destination="sIr-51-9CW" kind="push" identifier="toGeneratedReportsController" id="hZ3-Ik-hZL"/>
+                        <segue destination="Jyd-L2-ZEl" kind="push" identifier="toSuggestedLinksViewController" id="wpu-Yh-KPn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
@@ -1129,6 +1155,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="questionButton2_Sister" candidateClass="UIButton"/>
             </relationships>
         </class>
+        <class className="GeneratedReportViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GeneratedReportViewController.h"/>
+        </class>
         <class className="LastProceduresViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LastProceduresViewController.h"/>
             <relationships>
@@ -1180,7 +1209,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="ReportViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ReportViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="buttonWhateverpressed" candidateClass="UIButton"/>
+                <relationship kind="action" name="buttonGenerateMammogramReportPressed:"/>
+                <relationship kind="action" name="buttonGeneratePapSmearReportPressed:"/>
+                <relationship kind="action" name="buttonSuggestedLinkesPressed:"/>
             </relationships>
         </class>
         <class className="SettingsViewController" superclassName="UIViewController">
@@ -1190,6 +1221,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="outlet" name="buttonResetInformation" candidateClass="UIButton"/>
             </relationships>
         </class>
+        <class className="SuggestedLinksViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SuggestedLinksViewController.h"/>
+        </class>
         <class className="UpcomingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UpcomingViewController.h"/>
         </class>
@@ -1197,7 +1231,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="NAo-lh-j25"/>
