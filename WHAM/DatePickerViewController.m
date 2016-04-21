@@ -90,13 +90,7 @@ NSString* keyForDefaults;
     
     [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
     
-    // check for saved key and update datePicker accordingly
-    if(![[[defaults dictionaryRepresentation] allKeys] containsObject:keyForDefaults]){
-        defaultDate = [defaults objectForKey:keyForDefaults];
-    } else {
-        // here we need to find an appropriate date to have as the default
-        #warning unfinished implementation
-    }
+    
     
     [self.datePicker setDatePickerMode:UIDatePickerModeDate];
     
@@ -120,6 +114,7 @@ NSString* keyForDefaults;
                                                            action:@selector(buttonSavePressed:)];
     self.navigationItem.rightBarButtonItem = buttonSave;
     
+    [self loadSavedAnswers];
     
     [super viewWillAppear:animated];
     
@@ -137,6 +132,16 @@ NSString* keyForDefaults;
         [self.buttonHPVyes setSelected:[[defaults objectForKey:KEY_HPV_TESTED] boolValue]];
         [self.buttonHPVno setSelected:![[defaults objectForKey:KEY_HPV_TESTED] boolValue]];
     }
+    
+    // load date
+    // check for saved key and update datePicker accordingly
+    if ([[[defaults dictionaryRepresentation] allKeys] containsObject:keyForDefaults]) {
+        [self.datePicker setDate:[defaults objectForKey:keyForDefaults]];
+    } else {
+        #warning unfinished implementation
+        // here we need to find an appropriate date to have as the default
+    }
+    
 }
 
 typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_QUESTION_UNANSWERED, RETURN_LAST } VALIDATE_RETURN;
@@ -149,7 +154,6 @@ typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_Q
     [self.buttonResultsAbnormalNo setSelected:FALSE];
     [self.buttonResultsAbnormalYes setSelected:TRUE];
 }
-
 
 
 - (IBAction)buttonAbnormalNoPressed:(id)sender {
@@ -182,6 +186,8 @@ typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_Q
             NSLog(@"%@",[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] );
             [defaults setObject:[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] forKey:KEY_ABNORMAL_RESULTS];
         }
+        
+        [defaults setObject:self.datePicker.date forKey:keyForDefaults];
         
         [self.navigationController popViewControllerAnimated:YES];
         
