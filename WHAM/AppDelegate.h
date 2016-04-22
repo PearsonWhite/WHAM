@@ -15,8 +15,10 @@
 #warning - todo:
 /*
 
- No and Yes buttons should be switched in GUI (Yes is on the LHS in the Android version
- 
+-No and Yes buttons should be switched in GUI (Yes is on the LHS in the Android version
++Add constraints to GUI
+-Change Settings GUI
+-Check for no key on personal info inputs
  
 */
 

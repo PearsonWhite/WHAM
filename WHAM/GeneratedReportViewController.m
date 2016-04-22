@@ -43,12 +43,25 @@
             // age has being declared as a string in constants and not saved anywhere
             
             NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
-            if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_SMOKES]){
+            if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_BIRTH_DATE]){
+                
                 NSLog(@"The code runs through here!");
                 NSLog(@"string: %@", KEY_SMOKES);
                 
+                NSDate* birthday = [defaults valueForKey:KEY_BIRTH_DATE];
+                NSLog(@"bday %@", birthday);
+                
+                //NSDate* today = [NSCalendar ];
+                
+                NSNumber* smokesNum = [defaults valueForKey:KEY_SMOKES];
+                if ([smokesNum boolValue]) {
+                    NSLog(@"smokes");
+                }
+                
+                
+                //[[] timeIntervalSinceDate:birthday];
+                
             }
-            
             
             // generate pap smear report logic here
             break;
