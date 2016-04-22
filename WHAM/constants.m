@@ -31,14 +31,30 @@ NSString *const KEY_HPV_TESTED = @"UIUIUI";
 
 
 NSString *const LINKS_ARRAY[] = {
-    @"link1",
-    @"link2",
-    @"link3"
+    @"http://www.everydayhealth.com/cervical-cancer/smoking-risk.aspx",
+    @"http://ww5.komen.org/BreastCancer/Table22Smokingandbreastcancerrisk.html",
+    @"http://www.cdc.gov/std/hpv/stdfact-hpv.htm",
+    @"http://www.cdc.gov/std/hpv/STDFact-HPV-vaccine-young-women.htm",
+    @"http://www.cdc.gov/cancer/cervical/basic_info/index.htm",
+    @"http://www.cdc.gov/cancer/cervical/basic_info/risk_factors.htm",
+    @"http://www.cdc.gov/cancer/cervical/basic_info/prevention.htm",
+    @"http://www.cdc.gov/cancer/breast/basic_info/",
+    @"http://www.cancer.org/cancer/breastcancer/detailedguide/breast-cancer-risk-factors",
+    @"http://www.cancer.gov/bcrisktool/Default.aspx",
 };
 
 uint const LINKS_ARRAY_COUNT = 3;
 
-
+NSString *const LINKS_NAMES[] = { @"Smoking & Cervical Cancer Risk",
+@"Smoking & Breast Cancer Risk",
+@"What is Human Papillomavirus?",
+@"HPV Vaccine Information For Young Women",
+@"Basic Information About Cervical Cancer",
+@"What Are the Risk Factors for Cervical Cancer?",
+@"What You Can Do to Reduce Your Risk of Cervical Cancer",
+@"Basic Information About Breast Cancer",
+@"What Are the Risk Factors for Breast Cancer?",
+@"Breast Cancer Risk Assessment Tool" };
 
 
 
