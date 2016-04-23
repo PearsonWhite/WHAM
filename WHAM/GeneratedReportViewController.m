@@ -45,21 +45,15 @@
             NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
             if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_BIRTH_DATE]){
                 
-                NSLog(@"The code runs through here!");
-                NSLog(@"string: %@", KEY_SMOKES);
-                
                 NSDate* birthday = [defaults valueForKey:KEY_BIRTH_DATE];
-                NSLog(@"bday %@", birthday);
-                
-                //NSDate* today = [NSCalendar ];
+                NSTimeInterval timeSinceBDay = [[NSDate date] timeIntervalSinceDate:birthday];
+                double age = timeSinceBDay/(360.0*24.0*60.0*60.0);
+                NSLog(@"age: %f", age);
                 
                 NSNumber* smokesNum = [defaults valueForKey:KEY_SMOKES];
                 if ([smokesNum boolValue]) {
                     NSLog(@"smokes");
                 }
-                
-                
-                //[[] timeIntervalSinceDate:birthday];
                 
             }
             
