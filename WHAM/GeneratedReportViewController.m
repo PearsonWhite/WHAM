@@ -35,8 +35,64 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = self.title;
+    NSInteger age;
+
+    
+    NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
+    if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_BIRTH_DATE]){
+        self.birthday = [defaults valueForKey:KEY_LAST_MAMMO_DATE];
+        self.abnormal = [defaults valueForKey:KEY_ABNORMAL_RESULTS];
+        self.history_hpv = [defaults valueForKey:KEY_HISTORY_HPV];
+        
+        
+/*
+        FOUNDATION_EXPORT NSString *const KEY_HISTORY_HPV;
+        FOUNDATION_EXPORT NSString *const KEY_HPV_VACCINATED;
+        FOUNDATION_EXPORT NSString *const KEY_HAD_HISTERECTOMY;
+        FOUNDATION_EXPORT NSString *const KEY_HISTERECTOMY_FOR_CANCER;
+        
+        FOUNDATION_EXPORT NSString *const KEY_FAMILY_HISTORY_CANCER;
+        FOUNDATION_EXPORT NSString *const KEY_MOTHER_CANCER;
+        FOUNDATION_EXPORT NSString *const KEY_SISTER_CANCER;
+        FOUNDATION_EXPORT NSString *const KEY_DAUGHTER_CANCER;
+        
+        // use number as a bool when setting/getting
+        FOUNDATION_EXPORT NSString *const KEY_SMOKES;
+        
+        FOUNDATION_EXPORT NSString *const KEY_BIRTH_DATE;
+        FOUNDATION_EXPORT NSString *const KEY_LAST_MAMMO_DATE;
+        FOUNDATION_EXPORT NSString *const KEY_LAST_PAP_DATE;
+        
+        FOUNDATION_EXPORT NSString *const KEY_ABNORMAL_RESULTS;
+        FOUNDATION_EXPORT NSString *const KEY_HPV_TESTED;
+        
+        FOUNDATION_EXPORT NSString *const LINKS_ARRAY[];
+        FOUNDATION_EXPORT uint const LINKS_ARRAY_COUNT;
+        FOUNDATION_EXPORT NSString *const LINKS_NAMES[];
+*/
+        
+        NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit|NSDayCalendarUnit;
+        NSDateComponents *bdaycomponents = [[NSCalendar currentCalendar] components:componentFlags fromDate:self.birthday];
+        NSInteger byear = [bdaycomponents year];
+        NSInteger bmonth = [bdaycomponents month];
+        NSInteger bday = [bdaycomponents day];
+        NSLog(@"bday %ld, %ld, %ld", (long)byear, (long)bmonth, (long)bday);
+        
+        NSDate* date = [NSDate date];
+        NSDateComponents *datecomponents = [[NSCalendar currentCalendar] components:componentFlags fromDate:date];
+        NSInteger dateyear = [datecomponents year];
+        NSInteger datemonth = [datecomponents month];
+        NSInteger dateday = [datecomponents day];
+        NSLog(@"date %ld, %ld, %ld", (long)dateyear, (long)datemonth, (long)dateday);
+        
+        age = dateyear - byear;
+        if (datemonth < bmonth){
+            age -= 1;
+        }
+        NSLog(@"age %ld", (long)age);
+    }
+    
     switch (generatedType) {
-        case GeneratedPap: {
             
             
             // experimenting. is this the way we get proper values from the users personal info?
@@ -56,6 +112,13 @@
                 }
                 
             }
+            
+            // 1: Papsmear exam 3 years if normal, else every 5 years
+            // 2: Pap every 5 years with HPV if normal, else 5 years?
+            // 3: > 65 discontinue pap smear if normal
+            // 4: talk to doctor re mammo
+            
+            //[[] timeIntervalSinceDate:birthday];
             
             // generate pap smear report logic here
             break;
@@ -92,7 +155,10 @@
  Last Mammo:
  normal: do nothing
  abnormal: 4
- 
+ */
+
+
+ /*
  Past medical history:
     History of HPV:
         Yes: 5
@@ -103,8 +169,6 @@
         No: 
             age < 26: 9
             age > 26: do nothing
- 
-
     Surgery:
         Hysterectomoy:
             yes: 5
@@ -132,13 +196,11 @@
  
     > 65: discontinue
  
- 
     Mammo:
         40-50: discuss with doctor
  
         > 50: every 2 year mammo
- */
-
+*/
 /*
     Numbers above refer to the following recommendations:
     1: Papsmear exam 3 years if normal, else every 5 years
