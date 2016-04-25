@@ -1192,6 +1192,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="buttonFamilyHistoryPressed:"/>
                 <relationship kind="action" name="buttonLastProceduresPressed:"/>
                 <relationship kind="action" name="buttonPastMedHistoryPressed:"/>
+                <relationship kind="action" name="buttonSavePressed:"/>
                 <relationship kind="action" name="buttonSmokeNoPressed:"/>
                 <relationship kind="action" name="buttonSmokeYesPressed:"/>
                 <relationship kind="outlet" name="buttonEnterBirthday" candidateClass="UIButton"/>

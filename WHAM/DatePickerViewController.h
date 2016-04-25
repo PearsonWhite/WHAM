@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DatePickerViewController : UIViewController
+@interface DatePickerViewController : UIViewController <UIAlertViewDelegate>
 
 typedef enum { PickExamDatePap, PickExamDateMammo, PickExamDateBDay } PickViewType;
 

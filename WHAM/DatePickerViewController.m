@@ -70,8 +70,8 @@ NSString* keyForDefaults;
     
     
     
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSDate* defaultDate;
+    //NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    //NSDate* defaultDate;
     switch (self.pickerType) {
         case PickExamDateBDay: {
             keyForDefaults = KEY_BIRTH_DATE;
@@ -144,9 +144,37 @@ NSString* keyForDefaults;
     
 }
 
-typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_QUESTION_UNANSWERED, RETURN_LAST } VALIDATE_RETURN;
+typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_DATE_TOO_YOUNG, RETURN_QUESTION_UNANSWERED, RETURN_LAST } VALIDATE_RETURN;
 - (VALIDATE_RETURN)validateInformation {
     #warning unfinished implementation
+    
+    switch (self.pickerType) {
+        case PickExamDateBDay: {
+            NSTimeInterval timeSinceBDay = [[NSDate date] timeIntervalSinceDate:self.datePicker.date];
+            double age = timeSinceBDay/(360.0*24.0*60.0*60.0);
+            NSLog(@"age: %f", age);
+            if (age < 21.0) {
+                
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Age too small" message:@"You must be 21 or older to use this app." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                
+                return RETURN_DATE_TOO_YOUNG;
+            }
+            break;
+        } case PickExamDateMammo: {
+            if (!(self.buttonHPVyes.isSelected || self.buttonHPVno.isSelected)) {
+                
+                
+            }
+            break;
+        } case PickExamDatePap: {
+            
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
     return RETURN_VALID;
 }
 
