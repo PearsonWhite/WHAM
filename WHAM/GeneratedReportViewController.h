@@ -14,4 +14,8 @@ typedef enum { GeneratedPap, GeneratedMammo } GeneratedType;
 
 @property (nonatomic, assign) GeneratedType generatedType;
 
+@property NSDate* birthday;
+@property bool abnormal;
+@property bool history_hpv;
+
 @end
