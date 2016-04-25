@@ -156,6 +156,7 @@ typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_D
             if (age < 21.0) {
                 
                 UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Age too small" message:@"You must be 21 or older to use this app." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
                 
                 return RETURN_DATE_TOO_YOUNG;
             }

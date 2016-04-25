@@ -94,9 +94,25 @@
     
     switch (generatedType) {
             
+        case GeneratedPap: {
+            if (self.abnormal){
+                // 1: Papsmear exam every 5 years
+                NSLog(@"1: Papsmear exam was abnormal");
+                NSLog(@"1: Papsmear exam every 5 years");
+            }
+            else if (!self.abnormal){
+                NSLog(@"1: Papsmear exam was normal");
+                if(age > 21 && age < 30){
+                    NSLog(@"1: Papsmear exam every 3 years");
+                }
+            }
             
-            // experimenting. is this the way we get proper values from the users personal info?
-            // age has being declared as a string in constants and not saved anywhere
+            // 1: Papsmear exam 3 years if normal, else every 5 years
+            // 2: Pap every 5 years with HPV if normal, else 5 years?
+            // 3: > 65 discontinue pap smear if normal
+            // 4: talk to doctor re mammo
+            
+            //[[] timeIntervalSinceDate:birthday];
             
             NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
             if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_BIRTH_DATE]){
@@ -112,13 +128,6 @@
                 }
                 
             }
-            
-            // 1: Papsmear exam 3 years if normal, else every 5 years
-            // 2: Pap every 5 years with HPV if normal, else 5 years?
-            // 3: > 65 discontinue pap smear if normal
-            // 4: talk to doctor re mammo
-            
-            //[[] timeIntervalSinceDate:birthday];
             
             // generate pap smear report logic here
             break;
