@@ -17,6 +17,7 @@
 @implementation GeneratedReportViewController
 
 @synthesize generatedType;
+@synthesize labelGeneratedReport;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,76 +36,37 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = self.title;
-    NSInteger age;
 
     
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
-    if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_BIRTH_DATE]){
-        self.birthday = [defaults valueForKey:KEY_LAST_MAMMO_DATE];
-        self.abnormal = [defaults valueForKey:KEY_ABNORMAL_RESULTS_PAP];
-        self.history_hpv = [defaults valueForKey:KEY_HISTORY_HPV];
-        
-        
-/*
-        FOUNDATION_EXPORT NSString *const KEY_HISTORY_HPV;
-        FOUNDATION_EXPORT NSString *const KEY_HPV_VACCINATED;
-        FOUNDATION_EXPORT NSString *const KEY_HAD_HISTERECTOMY;
-        FOUNDATION_EXPORT NSString *const KEY_HISTERECTOMY_FOR_CANCER;
-        
-        FOUNDATION_EXPORT NSString *const KEY_FAMILY_HISTORY_CANCER;
-        FOUNDATION_EXPORT NSString *const KEY_MOTHER_CANCER;
-        FOUNDATION_EXPORT NSString *const KEY_SISTER_CANCER;
-        FOUNDATION_EXPORT NSString *const KEY_DAUGHTER_CANCER;
-        
-        // use number as a bool when setting/getting
-        FOUNDATION_EXPORT NSString *const KEY_SMOKES;
-        
-        FOUNDATION_EXPORT NSString *const KEY_BIRTH_DATE;
-        FOUNDATION_EXPORT NSString *const KEY_LAST_MAMMO_DATE;
-        FOUNDATION_EXPORT NSString *const KEY_LAST_PAP_DATE;
-        
-        FOUNDATION_EXPORT NSString *const KEY_ABNORMAL_RESULTS;
-        FOUNDATION_EXPORT NSString *const KEY_HPV_TESTED;
-        
-        FOUNDATION_EXPORT NSString *const LINKS_ARRAY[];
-        FOUNDATION_EXPORT uint const LINKS_ARRAY_COUNT;
-        FOUNDATION_EXPORT NSString *const LINKS_NAMES[];
-*/
-        
-        NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit|NSDayCalendarUnit;
-        NSDateComponents *bdaycomponents = [[NSCalendar currentCalendar] components:componentFlags fromDate:self.birthday];
-        NSInteger byear = [bdaycomponents year];
-        NSInteger bmonth = [bdaycomponents month];
-        NSInteger bday = [bdaycomponents day];
-        NSLog(@"bday %ld, %ld, %ld", (long)byear, (long)bmonth, (long)bday);
-        
-        NSDate* date = [NSDate date];
-        NSDateComponents *datecomponents = [[NSCalendar currentCalendar] components:componentFlags fromDate:date];
-        NSInteger dateyear = [datecomponents year];
-        NSInteger datemonth = [datecomponents month];
-        NSInteger dateday = [datecomponents day];
-        NSLog(@"date %ld, %ld, %ld", (long)dateyear, (long)datemonth, (long)dateday);
-        
-        age = dateyear - byear;
-        if (datemonth < bmonth){
-            age -= 1;
-        }
-        NSLog(@"age %ld", (long)age);
-    }
     
-    switch (generatedType) {
+    NSDate* birthday = [defaults valueForKey:KEY_BIRTH_DATE];
+    NSTimeInterval timeSinceBDay = [[NSDate date] timeIntervalSinceDate:birthday];
+    double age = timeSinceBDay/(360.0*24.0*60.0*60.0);
+    
+    int yearsUntilNext = 0;
+    GeneratedSuggestion action;
+    
+    
+    
+    
+    switch (self.generatedType) {
             
         case GeneratedPap: {
-            if (self.abnormal){
-                // 1: Papsmear exam every 5 years
-                NSLog(@"1: Papsmear exam was abnormal");
-                NSLog(@"1: Papsmear exam every 5 years");
-            }
-            else if (!self.abnormal){
-                NSLog(@"1: Papsmear exam was normal");
-                if(age > 21 && age < 30){
-                    NSLog(@"1: Papsmear exam every 3 years");
+            
+            if (![[defaults valueForKey:KEY_ABNORMAL_RESULTS_PAP] boolValue]) {
+                // if under 65 every 3 years
+                if (age < 65) {
+                    //every 3 years
+                    action = GeneratedSuggestionNextExam;
+                    yearsUntilNext = 3;
+                } else {
+                    // discontinue
+                    action = GeneratedSuggestionDiscontinue;
                 }
+            } else {
+                // abnormal
+                action = GeneratedSuggestionTalkToDoctor;
             }
             
             // 1: Papsmear exam 3 years if normal, else every 5 years
@@ -112,24 +74,6 @@
             // 3: > 65 discontinue pap smear if normal
             // 4: talk to doctor re mammo
             
-            //[[] timeIntervalSinceDate:birthday];
-            
-            NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
-            if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_BIRTH_DATE]){
-                
-                NSDate* birthday = [defaults valueForKey:KEY_BIRTH_DATE];
-                NSTimeInterval timeSinceBDay = [[NSDate date] timeIntervalSinceDate:birthday];
-                double age = timeSinceBDay/(360.0*24.0*60.0*60.0);
-                NSLog(@"age: %f", age);
-                
-                NSNumber* smokesNum = [defaults valueForKey:KEY_SMOKES];
-                if ([smokesNum boolValue]) {
-                    NSLog(@"smokes");
-                }
-                
-            }
-            
-            // generate pap smear report logic here
             break;
         }
         case GeneratedMammo: {
@@ -138,6 +82,27 @@
         }
         default:
             break;
+    }
+    
+    if (action == GeneratedSuggestionNextExam) {
+        unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
+        NSDate *now = [NSDate date];
+        NSCalendar *gregorian = [NSCalendar currentCalendar];
+        NSDateComponents *comps = [gregorian components:unitFlags fromDate:now];
+        [comps setYear:[comps year] + yearsUntilNext];
+        NSDate *nextExamDate = [gregorian dateFromComponents:comps];
+        
+        NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit|NSDayCalendarUnit;
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:componentFlags fromDate:nextExamDate];
+        NSInteger nextExamYear = [components year];
+        NSInteger nextExamMonth = [components month];
+        NSInteger nextExamDay = [components day];
+        
+        [self.labelGeneratedReport setText:[NSString stringWithFormat:@"Next exam date should be in the month of %ld-%ld-%ld", (long)nextExamMonth, (long)nextExamYear, (long)nextExamDay]];
+    } else if (action == GeneratedSuggestionTalkToDoctor) {
+        [self.labelGeneratedReport setText:@"Talk to you doctor."];
+    } else if (action == GeneratedSuggestionDiscontinue) {
+        [self.labelGeneratedReport setText:@"discontinue exams"];
     }
 }
 

@@ -17,4 +17,10 @@
 - (IBAction)buttonSuggestedLinkesPressed:(id)sender;
 
 
+@property (strong, nonatomic) IBOutlet UIButton *buttonGeneratePap;
+@property (strong, nonatomic) IBOutlet UIButton *buttonGenerateMammo;
+@property (strong, nonatomic) IBOutlet UIButton *buttonLinks;
+@property (strong, nonatomic) IBOutlet UILabel *labelNotEnoughInfo;
+
+
 @end

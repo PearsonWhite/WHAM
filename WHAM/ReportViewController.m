@@ -8,6 +8,7 @@
 
 #import "ReportViewController.h"
 #import "GeneratedReportViewController.h"
+#import "constants.h"
 
 @interface ReportViewController ()
 
@@ -35,7 +36,30 @@ GeneratedType generatetedType;
     
     // make sure we have all the data
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-//    NSArray* neededKeys = [[NSArray alloc] ]
+    NSArray* neededKeys = [[NSArray alloc] initWithObjects:
+                           KEY_HPV_VACCINATED,
+                           KEY_HAD_HISTERECTOMY,
+                           KEY_FAMILY_HISTORY_CANCER,
+                           KEY_SMOKES,
+                           KEY_BIRTH_DATE,
+                           KEY_LAST_MAMMO_DATE,
+                           KEY_LAST_PAP_DATE,
+                           KEY_ABNORMAL_RESULTS_MAMMO,
+                           KEY_ABNORMAL_RESULTS_PAP,
+                           KEY_HPV_TESTED,
+                           nil];
+    
+    [self.labelNotEnoughInfo setHidden:TRUE];
+    for (NSString* key in neededKeys) {
+        if (![[[defaults dictionaryRepresentation] allKeys] containsObject:key]) {
+            [self.buttonGenerateMammo setHidden:TRUE];
+            [self.buttonGeneratePap setHidden:TRUE];
+            [self.buttonLinks setHidden:TRUE];
+            [self.labelNotEnoughInfo setHidden:FALSE];
+            break;
+        }
+    }
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

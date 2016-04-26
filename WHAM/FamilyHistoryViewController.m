@@ -58,6 +58,22 @@ NSDictionary* defaultsLocalDictFH = nil;
         [button addTarget:self action:@selector(questionButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
     
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
+    
+    // save button
+    UIBarButtonItem *buttonSave = [[UIBarButtonItem alloc] initWithTitle:@"Save"
+                                                                   style:UIBarButtonItemStyleDone
+                                                                  target:self
+                                                                  action:@selector(buttonSavePressed:)];
+    self.navigationItem.rightBarButtonItem = buttonSave;
+    
+    
+    [super viewWillAppear:animated];
+    
     // update buttons
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
     
@@ -71,7 +87,6 @@ NSDictionary* defaultsLocalDictFH = nil;
     } else {
         for (NSUInteger index = 0; index < [buttonArray count]; index+=1) {
             // questionably set buttons to correct highlights
-            NSLog(@"KEY: %d  VALUE: %d", index, [[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]);
             if (index == 0) {
                 if ([[defaults objectForKey:[keysArray objectAtIndex:index+1]] boolValue]) {
                     // yes
@@ -88,26 +103,11 @@ NSDictionary* defaultsLocalDictFH = nil;
                 if (index > 1) {
                     [[buttonArray objectAtIndex:index] setSelected:[[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]];
                 }
-                NSLog(@"%@ %@", [keysArray objectAtIndex:index], [defaults objectForKey:[keysArray objectAtIndex:index]]);
                 [defaultsLocalDictFH setValue:[defaults objectForKey:[keysArray objectAtIndex:index]] forKey:[keysArray objectAtIndex:index]];
             }
         }
         
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
-    
-    // save button
-    UIBarButtonItem *buttonSave = [[UIBarButtonItem alloc] initWithTitle:@"Save"
-                                                                   style:UIBarButtonItemStyleDone
-                                                                  target:self
-                                                                  action:@selector(buttonSavePressed:)];
-    self.navigationItem.rightBarButtonItem = buttonSave;
-    
-    
-    [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -132,14 +132,12 @@ NSDictionary* defaultsLocalDictFH = nil;
     // standardUserDefaults = defaultsLocalDict
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     for (NSString* key in defaultsLocalDictFH) {
-        NSLog(@"%@ %@", key, [defaultsLocalDictFH valueForKey:key]);
         [defaults setObject:[defaultsLocalDictFH valueForKey:key] forKey:key];
     }
     [self.navigationController popViewControllerAnimated:TRUE];
 }
 
 - (IBAction)questionButtonPressed:(id)sender {
-    NSLog(@"Button index: %d", [buttonArray indexOfObject:(UIButton *)sender]);
     NSUInteger index = [buttonArray indexOfObject:(UIButton *)sender];
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
     switch (index) {

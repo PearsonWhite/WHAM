@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="643" y="-880"/>
         </scene>
-        <!--Generated-->
+        <!--Generated Report-->
         <scene sceneID="5DE-gb-Bvh">
             <objects>
-                <viewController title="Generated" id="sIr-51-9CW" customClass="GeneratedReportViewController" sceneMemberID="viewController">
+                <viewController title="Generated Report" id="sIr-51-9CW" customClass="GeneratedReportViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U41-gb-Q11"/>
                         <viewControllerLayoutGuide type="bottom" id="NRR-6X-twS"/>
@@ -123,9 +123,20 @@
                     <view key="view" contentMode="scaleToFill" id="cjQ-LA-HsL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqh-If-hTd">
+                                <rect key="frame" x="139" y="206" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4kc-W8-caz"/>
+                    <connections>
+                        <outlet property="labelGeneratedReport" destination="sqh-If-hTd" id="EWe-gE-d8z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvA-fq-oXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1091,6 +1102,12 @@
                                     <action selector="buttonSuggestedLinkesPressed:" destination="3" eventType="touchUpInside" id="HtZ-i3-ydZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please enter all personal info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlL-Sy-T1V">
+                                <rect key="frame" x="51" y="200" width="219" height="116"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1105,6 +1122,10 @@
                     <tabBarItem key="tabBarItem" title="Reports" image="reports.png" id="6"/>
                     <navigationItem key="navigationItem" id="Twe-5G-FrF"/>
                     <connections>
+                        <outlet property="buttonGenerateMammo" destination="VNc-Ey-I1D" id="mCR-Aj-Kqi"/>
+                        <outlet property="buttonGeneratePap" destination="ed9-9E-fhK" id="30L-Nw-O22"/>
+                        <outlet property="buttonLinks" destination="pQk-YE-lGP" id="KKr-NY-Geq"/>
+                        <outlet property="labelNotEnoughInfo" destination="WlL-Sy-T1V" id="bQB-gX-ffl"/>
                         <segue destination="sIr-51-9CW" kind="push" identifier="toGeneratedReportsController" id="hZ3-Ik-hZL"/>
                         <segue destination="Jyd-L2-ZEl" kind="push" identifier="toSuggestedLinksViewController" id="wpu-Yh-KPn"/>
                     </connections>
