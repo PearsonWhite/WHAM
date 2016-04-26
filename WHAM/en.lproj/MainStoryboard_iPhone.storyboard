@@ -1140,6 +1140,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FamilyHistoryViewController.h"/>
             <relationships>
                 <relationship kind="action" name="buttonSavePressed:"/>
+                <relationship kind="action" name="questionButtonPressed:"/>
                 <relationship kind="outlet" name="labelDaughter" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelMother" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelSister" candidateClass="UILabel"/>
@@ -1168,6 +1169,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="MedHistoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MedHistoryViewController.h"/>
             <relationships>
+                <relationship kind="action" name="buttonSavePressed:"/>
                 <relationship kind="action" name="questionButtonPressed:"/>
                 <relationship kind="outlet" name="labelDueToCancer" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="labelDueToCancerNo" candidateClass="UILabel"/>
