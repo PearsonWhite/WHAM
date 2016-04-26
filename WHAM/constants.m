@@ -29,6 +29,9 @@ NSString *const KEY_LAST_PAP_DATE = @"bnjfbnjbf";
 NSString *const KEY_ABNORMAL_RESULTS = @"JFLJIJ";
 NSString *const KEY_HPV_TESTED = @"UIUIUI";
 
+NSString *const KEY_ABNORMAL_RESULTS_MAMMO = @"alsdjfl;";
+NSString *const KEY_ABNORMAL_RESULTS_PAP = @"jkjkjafdaf";
+
 
 NSString *const LINKS_ARRAY[] = {
     @"http://www.everydayhealth.com/cervical-cancer/smoking-risk.aspx",

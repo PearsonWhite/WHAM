@@ -213,7 +213,11 @@ typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_D
         }
         if (showLabelAbnormal) {
             NSLog(@"%@",[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] );
-            [defaults setObject:[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] forKey:KEY_ABNORMAL_RESULTS];
+            if (self.pickerType == PickExamDateMammo) {
+                [defaults setObject:[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] forKey:KEY_ABNORMAL_RESULTS_MAMMO];
+            } else {
+                [defaults setObject:[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] forKey:KEY_ABNORMAL_RESULTS_PAP];
+            }
         }
         
         [defaults setObject:self.datePicker.date forKey:keyForDefaults];
