@@ -41,7 +41,7 @@
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
     if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_BIRTH_DATE]){
         self.birthday = [defaults valueForKey:KEY_LAST_MAMMO_DATE];
-        self.abnormal = [defaults valueForKey:KEY_ABNORMAL_RESULTS];
+        self.abnormal = [defaults valueForKey:KEY_ABNORMAL_RESULTS_PAP];
         self.history_hpv = [defaults valueForKey:KEY_HISTORY_HPV];
         
         

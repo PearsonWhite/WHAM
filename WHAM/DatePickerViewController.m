@@ -124,8 +124,14 @@ NSString* keyForDefaults;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
     if (showLabelAbnormal) {
-        [self.buttonResultsAbnormalYes setSelected:[[defaults objectForKey:KEY_ABNORMAL_RESULTS] boolValue]];
-        [self.buttonResultsAbnormalNo setSelected:![[defaults objectForKey:KEY_ABNORMAL_RESULTS] boolValue]];
+        if (self.pickerType == PickExamDateMammo) {
+            [self.buttonResultsAbnormalYes setSelected:[[defaults objectForKey:KEY_ABNORMAL_RESULTS_MAMMO] boolValue]];
+            [self.buttonResultsAbnormalNo setSelected:![[defaults objectForKey:KEY_ABNORMAL_RESULTS_MAMMO] boolValue]];
+        } else {
+            [self.buttonResultsAbnormalYes setSelected:[[defaults objectForKey:KEY_ABNORMAL_RESULTS_PAP] boolValue]];
+            [self.buttonResultsAbnormalNo setSelected:![[defaults objectForKey:KEY_ABNORMAL_RESULTS_PAP] boolValue]];
+        }
+        
     }
     
     if (showLabelHPV) {
