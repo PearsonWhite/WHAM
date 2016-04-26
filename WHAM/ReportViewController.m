@@ -32,6 +32,10 @@ GeneratedType generatetedType;
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = self.title;
     [self.navigationController setNavigationBarHidden:FALSE];
+    
+    // make sure we have all the data
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+//    NSArray* neededKeys = [[NSArray alloc] ]
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
