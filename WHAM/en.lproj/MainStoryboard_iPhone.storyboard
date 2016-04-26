@@ -1145,10 +1145,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="cm1-vs-7IP" kind="relationship" relationship="viewControllers" id="e2y-UF-iDX"/>
-                        <segue destination="0w8-Sl-GxB" kind="relationship" relationship="viewControllers" id="TBE-ZV-ZmW"/>
-                        <segue destination="SXk-Wv-E9I" kind="relationship" relationship="viewControllers" id="giM-YC-p8d"/>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="CmZ-l6-JN0"/>
+                        <segue destination="SXk-Wv-E9I" kind="relationship" relationship="viewControllers" id="Oeo-Pf-7ts"/>
+                        <segue destination="cm1-vs-7IP" kind="relationship" relationship="viewControllers" id="zQq-eL-gHv"/>
+                        <segue destination="2" kind="relationship" relationship="viewControllers" id="h1p-su-QNv"/>
+                        <segue destination="0w8-Sl-GxB" kind="relationship" relationship="viewControllers" id="GXG-UL-m5h"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
