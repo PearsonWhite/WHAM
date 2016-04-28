@@ -21,6 +21,28 @@ GeneratedType generatetedType;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UITabBarItem *item0 = [self.tabBarController.tabBar.items objectAtIndex:0];
+    UITabBarItem *item1 = [self.tabBarController.tabBar.items objectAtIndex:1];
+    UITabBarItem *item2 = [self.tabBarController.tabBar.items objectAtIndex:2];
+    UITabBarItem *item3 = [self.tabBarController.tabBar.items objectAtIndex:3];
+
+
+    [item0 setImage:[[UIImage imageNamed:@"reports.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    [item1 setImage:[[UIImage imageNamed:@"information.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    [item2 setImage:[[UIImage imageNamed:@"upcoming.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+
+    [item3 setImage:[[UIImage imageNamed:@"settings.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+
+    // self.tabBarController.tabBar.barTintColor = [UIColor clearColor];
+    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    // [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+
+
+
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

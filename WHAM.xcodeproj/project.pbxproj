@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65BBCF3F1CD0C2CA00ABB3CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BBCF3E1CD0C2CA00ABB3CD /* LaunchScreen.storyboard */; };
+		65BBCF411CD0C66400ABB3CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65BBCF401CD0C66400ABB3CD /* Images.xcassets */; };
 		816242D41CA0C5E600BEAC63 /* constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D31CA0C5E600BEAC63 /* constants.m */; };
 		816242D71CA0CEDE00BEAC63 /* LastProceduresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D61CA0CEDE00BEAC63 /* LastProceduresViewController.m */; };
 		816242DA1CA0CF1C00BEAC63 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816242D91CA0CF1C00BEAC63 /* DatePickerViewController.m */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65BBCF3E1CD0C2CA00ABB3CD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65BBCF401CD0C66400ABB3CD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		816242D21CA0C5E600BEAC63 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		816242D31CA0C5E600BEAC63 /* constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = constants.m; sourceTree = "<group>"; };
 		816242D51CA0CEDE00BEAC63 /* LastProceduresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastProceduresViewController.h; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		818A9A2F1C8B581600874CA1 = {
 			isa = PBXGroup;
 			children = (
+				65BBCF3E1CD0C2CA00ABB3CD /* LaunchScreen.storyboard */,
 				818A9A411C8B581600874CA1 /* WHAM */,
 				818A9A3A1C8B581600874CA1 /* Frameworks */,
 				818A9A391C8B581600874CA1 /* Products */,
@@ -187,6 +192,7 @@
 				816FB7CC1C8CE5F900AD40F2 /* FamilyHistoryViewController.m */,
 				8169144A1C8B602100498B72 /* SettingsViewController.h */,
 				8169144B1C8B602100498B72 /* SettingsViewController.m */,
+				65BBCF401CD0C66400ABB3CD /* Images.xcassets */,
 				818A9A421C8B581600874CA1 /* Supporting Files */,
 			);
 			path = WHAM;
@@ -267,10 +273,12 @@
 				816FB7D11C8CF85D00AD40F2 /* emptyBox.png in Resources */,
 				81736A111CC6E0750041DD24 /* cancer.png in Resources */,
 				81736A121CC6E0750041DD24 /* health.png in Resources */,
+				65BBCF411CD0C66400ABB3CD /* Images.xcassets in Resources */,
 				81736A131CC6E0750041DD24 /* heart.png in Resources */,
 				81736A141CC6E0750041DD24 /* hpv.png in Resources */,
 				81736A151CC6E0750041DD24 /* ICONS.png in Resources */,
 				81736A181CC6E0750041DD24 /* return.png in Resources */,
+				65BBCF3F1CD0C2CA00ABB3CD /* LaunchScreen.storyboard in Resources */,
 				81736A191CC6E0750041DD24 /* save.png in Resources */,
 				81736A1B1CC6E0750041DD24 /* splash.png in Resources */,
 				81736A201CC6E30A0041DD24 /* settings.png in Resources */,
@@ -386,6 +394,7 @@
 		818A9A6A1C8B581600874CA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WHAM/WHAM-Prefix.pch";
 				INFOPLIST_FILE = "WHAM/WHAM-Info.plist";
@@ -397,6 +406,7 @@
 		818A9A6B1C8B581600874CA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WHAM/WHAM-Prefix.pch";
 				INFOPLIST_FILE = "WHAM/WHAM-Info.plist";
