@@ -98,7 +98,6 @@
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="hni-FB-iNN" firstAttribute="top" secondItem="O5u-dy-SOQ" secondAttribute="top" constant="174" id="0J3-bM-Ddr"/>
-                            <constraint firstAttribute="bottom" secondItem="hni-FB-iNN" secondAttribute="bottom" constant="64" id="72M-fd-80Y"/>
                             <constraint firstItem="wbV-xp-lQH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="O5u-dy-SOQ" secondAttribute="top" constant="109" id="7nH-el-VlL"/>
                             <constraint firstItem="Pb7-iJ-YjH" firstAttribute="trailing" secondItem="O5u-dy-SOQ" secondAttribute="trailing" id="EyP-56-xAM"/>
                             <constraint firstItem="Pb7-iJ-YjH" firstAttribute="top" secondItem="O5u-dy-SOQ" secondAttribute="top" id="S5S-dD-d9L"/>

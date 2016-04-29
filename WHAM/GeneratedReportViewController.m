@@ -160,15 +160,66 @@
     NSDate* birthday = [defaults valueForKey:KEY_BIRTH_DATE];
     NSTimeInterval timeSinceBDay = [[NSDate date] timeIntervalSinceDate:birthday];
     double age = timeSinceBDay/(360.0*24.0*60.0*60.0);
-    NSString* message;
+    NSString* message = @" ";
 
     int yearsUntilNext = 0;
-    GeneratedSuggestion action;
+    GeneratedSuggestion action = GeneratedSuggestionNone;
     
     
     switch (self.generatedType) {
             
         case GeneratedPap: {
+            if ([defaults objectForKey:KEY_HISTORY_HPV] == FALSE) {
+            
+                
+                if ([[defaults objectForKey:KEY_HISTERECTOMY_FOR_CANCER] boolValue] == FALSE) {
+                    
+                    message = [message stringByAppendingString:@"Since you have had a hysterectomy & it was not due to cancer, you are no longer scheduled to have any additional Pap Smear procedures. "];
+                }
+            }
+            else {
+                
+                if( age > 65 ) {
+                    if ([[defaults objectForKey:KEY_ABNORMAL_RESULTS_PAP] boolValue] == TRUE) {
+                        
+                        message = [message stringByAppendingString:@"The results of your last Pap Smear exam were abnormal, it is recommended that you talk to your Doctor to get more information. "];
+                    }
+                    else {
+                        message = [message stringByAppendingString:@"Since you are over the age of 65, you are no longer scheduled to have any additional Pap Smear procedures. "];
+                    }
+                }
+                else {
+                    /*
+                    int day = sp.getInt( "LastPapDay", 0);
+                    int month = sp.getInt( "LastPapMonth", 0);
+                    int year = sp.getInt( "LastPapYear", 0);
+                    
+                    message += "Your last Pap Smear exam was on " + month + "/" + day + "/" + year + ". ";
+                    */
+                    
+                    if ([[defaults objectForKey:KEY_ABNORMAL_RESULTS_PAP] boolValue] == FALSE) {
+                        
+                        message = [message stringByAppendingString:@"The results of your last Pap Smear exam were abnormal, it is recommended that you talk to your Doctor to get more information. "];
+                    }
+                    else {
+                        /*
+                        if( scheduleImmediately() ) {
+                            
+                            message = [message stringByAppendingString:@"Your last Pap Smear exam exceeds the recommended time between exams, please schedule an examination immediately! "';
+                        }
+                        else {
+                            
+                            message = [message stringByAppendingString:@"The results of your last Pap Smear were normal, you are scheduled for your next Pap Smear examination during
+                            intToMonth(month) + " " + getNextExamYear() + ". ";
+                        }
+                         */
+                        
+                        action = GeneratedSuggestionTalkToDoctor;
+                    }
+                }
+            
+            
+            
             /*
             if (![[defaults valueForKey:KEY_ABNORMAL_RESULTS_PAP] boolValue]) {
                 // if under 65 every 3 years
@@ -197,7 +248,7 @@
         case GeneratedMammo: {
             // generate mammogram report logic here
             // NSString* message = @"";
-            message = @"";
+            message = @" ";
             
             NSDate* lastmammodate = [defaults valueForKey:KEY_LAST_MAMMO_DATE];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -215,62 +266,49 @@
             NSInteger year = [curcomponents year];
             // NSInteger month = [curcomponents month];
             
-            
-        
-            // if( sp.getBoolean( "ageGiven", false ) ) {
-            // if([[defaults valueForKey:KEY_BIRTH_DATE] boolValue] ) {
-                // fix
-            
-                if( age >= 40 ) {
+            if( age >= 40 ) {
+                
+                // if (sp.getBoolean("mammoDateGiven", false)) {
+                if([[defaults valueForKey:KEY_LAST_MAMMO_DATE] boolValue] ) {
                     
-                    // if (sp.getBoolean("mammoDateGiven", false)) {
-                    if([[defaults valueForKey:KEY_LAST_MAMMO_DATE] boolValue] ) {
+                    // ( sp.getBoolean( "abnormalMammo", false  ) ) {
+                    if([[defaults valueForKey:KEY_ABNORMAL_RESULTS_MAMMO] boolValue] ) {
                         
-                        // ( sp.getBoolean( "abnormalMammo", false  ) ) {
-                        if([[defaults valueForKey:KEY_ABNORMAL_RESULTS_MAMMO] boolValue] ) {
-                            
-                            message = [message stringByAppendingString:@"The results of your last Mammogram exam were abnormal, it is recommended that you talk to your Doctor to get more information. "];
-
-                        }
-                        else {
-                            if ((year - myear) > 2) {
-                                message = [message stringByAppendingString:@"Your last Mammogram exam exceeds the recommended time between exams, please schedule an examination immediately! "];
-                                    
-                            } else {
-                                year += 2;
-                                message = [message stringByAppendingString:@"The results of your last Mammogram were normal, you are scheduled for your next Mammogram examination during "];//
-                                // + @(month).stringValue + " " +  @(year).stringValue + ". ";
-                            }
-                        }
+                        message = [message stringByAppendingString:@"The results of your last Mammogram exam were abnormal, it is recommended that you talk to your Doctor to get more information. "];
+                        
                     }
                     else {
-                        message = [message stringByAppendingString:@"There is no record of your last Mammogram exam. "];//
+                        if ((year - myear) > 2) {
+                            message = [message stringByAppendingString:@"Your last Mammogram exam exceeds the recommended time between exams, please schedule an examination immediately! "];
+                            
+                        } else {
+                            year += 2;
+                            message = [message stringByAppendingString:@"The results of your last Mammogram were normal, you are scheduled for your next Mammogram examination during "];//
+                            // + @(month).stringValue + " " +  @(year).stringValue + ". ";
+                        }
                     }
                 }
-                else {
-                    message = [message stringByAppendingString:@"You are under 40 years old so there is nothing to report. "];
-                }
-                    
-            //}
-            //else {
-            //    message = [message stringByAppendingString:@"There is no record of your age.  "];
-            // }
-            // FIX
+            } else {
+                message = [message stringByAppendingString:@"You are under 40 years old so there is nothing to report. "];
+            }
+            
+            
             
             NSString *temp2 = [self suggestedLinksMessage];
             message = [message stringByAppendingString: temp2];
-            NSLog(message);
             // tvMammoReportMessage.setText( message );
         }
         break;
             
         default:
             break;
+        }
+            
     }
     
-    [self.labelGeneratedReport setText:[NSString stringWithFormat:message]];
-
-    /*
+    //[self.labelGeneratedReport setText:[NSString stringWithFormat:@"%@", message]];
+    
+    
     if (action == GeneratedSuggestionNextExam) {
         unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
         NSDate *now = [NSDate date];
@@ -285,12 +323,25 @@
         NSInteger nextExamMonth = [components month];
         NSInteger nextExamDay = [components day];
         
-        [self.labelGeneratedReport setText:[NSString stringWithFormat:@"Next exam date should be in the month of %ld-%ld-%ld", (long)nextExamMonth, (long)nextExamYear, (long)nextExamDay]];
+        NSString* prefix = [NSString stringWithFormat:@"Next exam date should be in the month of %ld-%ld-%ld", (long)nextExamMonth, (long)nextExamYear, (long)nextExamDay];
+        
+        NSString* newMessage = [NSString stringWithFormat:@"%@\n%@", prefix, message];
+        
+        [self.labelGeneratedReport setText:newMessage];
+        
     } else if (action == GeneratedSuggestionTalkToDoctor) {
-        [self.labelGeneratedReport setText:@"Talk to you doctor."];
+        NSString* prefix = @"Talk to your doctor about scheduling an exam.";
+        NSString* newMessage = [NSString stringWithFormat:@"%@\n%@", prefix, message];
+        [self.labelGeneratedReport setText:newMessage];
     } else if (action == GeneratedSuggestionDiscontinue) {
-        [self.labelGeneratedReport setText:@"discontinue exams"];
-    }*/
+        NSString* prefix = @"discontinue exams";
+        NSString* newMessage = [NSString stringWithFormat:@"%@\n%@", prefix, message];
+        [self.labelGeneratedReport setText:newMessage];
+    } else {
+        [self.labelGeneratedReport setText:[NSString stringWithFormat:@"%@", message]];
+    }
+    
+
 }
 
 - (int) calculateDate:(NSDate*) date
