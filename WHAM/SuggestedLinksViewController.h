@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SuggestedLinksViewController : UIViewController
+// @interface SuggestedLinksViewController : UIViewController
+
+@interface SuggestedLinksViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    NSArray *dataArray;
+}
+@property (weak, nonatomic) IBOutlet UITableView *TableViewObject;
+
 
 @end

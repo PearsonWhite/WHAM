@@ -46,7 +46,7 @@ NSString *const LINKS_ARRAY[] = {
     @"http://www.cancer.gov/bcrisktool/Default.aspx",
 };
 
-uint const LINKS_ARRAY_COUNT = 3;
+uint const LINKS_ARRAY_COUNT = 10;
 
 NSString *const LINKS_NAMES[] = { @"Smoking & Cervical Cancer Risk",
 @"Smoking & Breast Cancer Risk",

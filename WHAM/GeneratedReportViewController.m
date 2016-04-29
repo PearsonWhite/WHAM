@@ -34,26 +34,142 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.navigationItem.title = self.title;
+- (NSString*) intToMonth:( int ) number
+{
+    switch ( number ) {
+            
+        case 1:
+            return @"January";
+            
+        case 2:
+            return @"February";
+            
+        case 3:
+            return @"March";
+            
+        case 4:
+            return @"April";
+            
+        case 5:
+            return @"May";
+            
+        case 6:
+            return @"June";
+            
+        case 7:
+            return @"July";
+            
+        case 8:
+            return @"August";
+            
+        case 9:
+            return @"September";
+            
+        case 10:
+            return @"October";
+            
+        case 11:
+            return @"November";
+            
+        case 12:
+            return @"December";
 
-    
+        default:
+            NSLog (@"Error intToMonth: invalid parameter ");
+            break;
+    }
+    return 0;
+}
+
+- (NSString*) suggestedLinksMessage
+{
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
+    NSString* message = @"Since ";
+    Boolean comma = false;
+    Boolean andOne = false;
+    Boolean andTwo = false;
+    Boolean andThree = false;
+    Boolean messageGiven = false;
     
     NSDate* birthday = [defaults valueForKey:KEY_BIRTH_DATE];
     NSTimeInterval timeSinceBDay = [[NSDate date] timeIntervalSinceDate:birthday];
     double age = timeSinceBDay/(360.0*24.0*60.0*60.0);
     
+    // example
+    if([[defaults valueForKey:KEY_SMOKES] boolValue] ) {
+        message = [message stringByAppendingString:@"you are a smoker"];
+        andOne = true;
+        messageGiven = true;
+        
+        // if( !sp.getBoolean( "breastCancer", false ) ) {
+        if( ![[defaults valueForKey:KEY_FAMILY_HISTORY_CANCER] boolValue] ) {
+            
+            andTwo = true;
+        }
+        else {
+            
+            comma = true;
+        }
+    }
+    
+    // if( age >= 21 && age <= 26 && !sp.getBoolean( "vaccinated", true ) ) {
+    if( age >= 21 && age <= 26 && ![[defaults valueForKey:KEY_HPV_VACCINATED] boolValue] ) {
+        
+        if( andTwo ) {
+            message = [message stringByAppendingString:@" & "];
+        }
+        if( comma ) {
+            message = [message stringByAppendingString:@" , "];
+        }
+        
+        message = [message stringByAppendingString:@"you have not been vaccinated against HPV"];
+        andThree = true;
+        messageGiven = true;
+    }
+    
+    // if( sp.getBoolean( "breastCancer", false ) ) {
+    if( [[defaults valueForKey:KEY_FAMILY_HISTORY_CANCER] boolValue] ) {
+        
+        if( andOne || andThree ) {
+            
+            message = [message stringByAppendingString:@" & "];
+        }
+
+        message = [message stringByAppendingString:@" your family has a history of breast cancer "];
+        messageGiven = true;
+    }
+    
+    if( !messageGiven ) {
+        
+        message = @"";
+    }
+    else {
+        
+        message = [message stringByAppendingString:@" please see the suggested links."];
+    }
+    
+    // printf("%s", [message cStringUsingEncoding:[NSString defaultCStringEncoding]]);
+    return message;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationItem.title = self.title;
+
+    
+    NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
+    NSDate* birthday = [defaults valueForKey:KEY_BIRTH_DATE];
+    NSTimeInterval timeSinceBDay = [[NSDate date] timeIntervalSinceDate:birthday];
+    double age = timeSinceBDay/(360.0*24.0*60.0*60.0);
+    NSString* message;
+
     int yearsUntilNext = 0;
     GeneratedSuggestion action;
-    
-    
     
     
     switch (self.generatedType) {
             
         case GeneratedPap: {
-            
+            /*
             if (![[defaults valueForKey:KEY_ABNORMAL_RESULTS_PAP] boolValue]) {
                 // if under 65 every 3 years
                 if (age < 65) {
@@ -73,17 +189,88 @@
             // 2: Pap every 5 years with HPV if normal, else 5 years?
             // 3: > 65 discontinue pap smear if normal
             // 4: talk to doctor re mammo
-            
+            */
+            // NSString* message = [self suggestedLinksMessage];
+            // message = suggestedLinksMessage();
             break;
         }
         case GeneratedMammo: {
             // generate mammogram report logic here
-            break;
+            // NSString* message = @"";
+            message = @"";
+            
+            NSDate* lastmammodate = [defaults valueForKey:KEY_LAST_MAMMO_DATE];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+            // NSString *dateString = [dateFormatter stringFromDate:lastmammodate];
+        
+            NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+            NSDateComponents *components = [[NSCalendar currentCalendar] components:componentFlags fromDate:lastmammodate];
+            NSInteger myear = [components year];
+            // NSInteger mmonth = [components month];
+            
+            NSDate *date = [NSDate date];
+            NSUInteger temp = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+            NSDateComponents *curcomponents = [[NSCalendar currentCalendar] components:temp fromDate:date];
+            NSInteger year = [curcomponents year];
+            // NSInteger month = [curcomponents month];
+            
+            
+        
+            // if( sp.getBoolean( "ageGiven", false ) ) {
+            // if([[defaults valueForKey:KEY_BIRTH_DATE] boolValue] ) {
+                // fix
+            
+                if( age >= 40 ) {
+                    
+                    // if (sp.getBoolean("mammoDateGiven", false)) {
+                    if([[defaults valueForKey:KEY_LAST_MAMMO_DATE] boolValue] ) {
+                        
+                        // ( sp.getBoolean( "abnormalMammo", false  ) ) {
+                        if([[defaults valueForKey:KEY_ABNORMAL_RESULTS_MAMMO] boolValue] ) {
+                            
+                            message = [message stringByAppendingString:@"The results of your last Mammogram exam were abnormal, it is recommended that you talk to your Doctor to get more information. "];
+
+                        }
+                        else {
+                            if ((year - myear) > 2) {
+                                message = [message stringByAppendingString:@"Your last Mammogram exam exceeds the recommended time between exams, please schedule an examination immediately! "];
+                                    
+                            } else {
+                                year += 2;
+                                message = [message stringByAppendingString:@"The results of your last Mammogram were normal, you are scheduled for your next Mammogram examination during "];//
+                                // + @(month).stringValue + " " +  @(year).stringValue + ". ";
+                            }
+                        }
+                    }
+                    else {
+                        message = [message stringByAppendingString:@"There is no record of your last Mammogram exam. "];//
+                    }
+                }
+                else {
+                    message = [message stringByAppendingString:@"You are under 40 years old so there is nothing to report. "];
+                }
+                    
+            //}
+            //else {
+            //    message = [message stringByAppendingString:@"There is no record of your age.  "];
+            // }
+            // FIX
+            
+            NSString *temp2 = [self suggestedLinksMessage];
+            message = [message stringByAppendingString: temp2];
+            NSLog(message);
+            // tvMammoReportMessage.setText( message );
         }
+        break;
+            
         default:
             break;
     }
     
+    [self.labelGeneratedReport setText:[NSString stringWithFormat:message]];
+
+    /*
     if (action == GeneratedSuggestionNextExam) {
         unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;
         NSDate *now = [NSDate date];
@@ -103,7 +290,17 @@
         [self.labelGeneratedReport setText:@"Talk to you doctor."];
     } else if (action == GeneratedSuggestionDiscontinue) {
         [self.labelGeneratedReport setText:@"discontinue exams"];
-    }
+    }*/
+}
+
+- (int) calculateDate:(NSDate*) date
+{
+    // NSString* message = @"";
+    // NSDate* lastmammodate = [defaults valueForKey:KEY_LAST_MAMMO_DATE];
+    NSTimeInterval timeSinceDate = [[NSDate date] timeIntervalSinceDate:date];
+    int years = (int) timeSinceDate/(360.0*24.0*60.0*60.0);
+    // printf("Calculate Date Debugging %g", years);
+    return years;
 }
 
 - (void)didReceiveMemoryWarning

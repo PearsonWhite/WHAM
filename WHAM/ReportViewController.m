@@ -36,12 +36,6 @@ GeneratedType generatetedType;
 
     [item3 setImage:[[UIImage imageNamed:@"settings.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 
-    // self.tabBarController.tabBar.barTintColor = [UIColor clearColor];
-    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
-    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
-    // [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
-
-
 
 	// Do any additional setup after loading the view, typically from a nib.
 }
