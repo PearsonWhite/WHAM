@@ -963,8 +963,8 @@
                                     <action selector="buttonFamilyHistoryPressed:" destination="q6S-tD-vUc" eventType="touchUpInside" id="Pq7-yr-OSz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYl-rv-GRt">
-                                <rect key="frame" x="94" y="149" width="20" height="28"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYl-rv-GRt">
+                                <rect key="frame" x="94" y="149" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="gJa-Wy-U9D"/>
                                 </constraints>
@@ -980,8 +980,8 @@
                                     <action selector="buttonSmokeYesPressed:" destination="q6S-tD-vUc" eventType="touchUpInside" id="Lvd-SQ-Gxm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvB-oa-BOd">
-                                <rect key="frame" x="203" y="149" width="20" height="28"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvB-oa-BOd">
+                                <rect key="frame" x="203" y="149" width="20" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="emptyBox.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>

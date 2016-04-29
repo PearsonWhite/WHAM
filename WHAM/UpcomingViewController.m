@@ -7,6 +7,7 @@
 //
 
 #import "UpcomingViewController.h"
+#import "constants.h"
 
 @interface UpcomingViewController ()
 
@@ -19,33 +20,108 @@
     [super viewDidLoad];
     
     
-    
+}
+
+
+
+
+- (void)setPapText {
     /*
-     
-     
-     if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_BIRTH_DATE]){
-     
-     NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit|NSDayCalendarUnit;
-     NSDateComponents *bdaycomponents = [[NSCalendar currentCalendar] components:componentFlags fromDate:self.birthday];
-     NSInteger byear = [bdaycomponents year];
-     NSInteger bmonth = [bdaycomponents month];
-     NSInteger bday = [bdaycomponents day];
-     NSLog(@"bday %ld, %ld, %ld", (long)byear, (long)bmonth, (long)bday);
-     
-     NSDate* date = [NSDate date];
-     NSDateComponents *datecomponents = [[NSCalendar currentCalendar] components:componentFlags fromDate:date];
-     NSInteger dateyear = [datecomponents year];
-     NSInteger datemonth = [datecomponents month];
-     NSInteger dateday = [datecomponents day];
-     NSLog(@"date %ld, %ld, %ld", (long)dateyear, (long)datemonth, (long)dateday);
-     
-     age = dateyear - byear;
-     if (datemonth < bmonth){
-     age -= 1;
-     }
-     NSLog(@"age %ld", (long)age);
-     
-     */
+    NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
+    NSDate* birthday = [defaults valueForKey:KEY_BIRTH_DATE];
+    NSTimeInterval timeSinceBDay = [[NSDate date] timeIntervalSinceDate:birthday];
+    double age = timeSinceBDay/(360.0*24.0*60.0*60.0);
+        
+    if ([[defaults objectForKey:KEY_HISTORY_HPV] boolValue] == FALSE) {
+        
+        
+        if ([defaults objectForKey:KEY_HISTERECTOMY_FOR_CANCER]) {
+            
+            //tvUpcomingPap.setText("DISCONTINUED DUE TO SURGERY");
+        }
+        else {
+            
+            if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_BIRTH_DATE] == FALSE){
+                
+                if ([[defaults objectForKey:KEY_BIRTH_DATE] boolValue] == FALSE) {
+                
+                    if ([[defaults objectForKey:KEY_ABNORMAL_RESULTS_PAP] boolValue] == TRUE) {
+                        
+                        //tvUpcomingPap.setText("SEE PAP SMEAR REPORT");
+                    }
+                    else {
+                        
+                        if( scheduleImmediately() ) {
+                            
+                            tvUpcomingPap.setText("SCHEDULE IMMEDIATELY");
+                        }
+                        else {
+                            
+                            displayPapInfo();
+                        }
+                    }
+                }
+                else {
+                    
+                    //tvUpcomingPap.setText("PLEASE ENTER YOUR AGE IN PERSONAL INFO");
+                }
+                
+            }
+            else {
+                
+                //tvUpcomingPap.setText("NO RECORD OF LAST EXAM");
+            }
+        }
+    }
+    else {
+        if ( age > 65 ) {
+            
+            if ([[defaults objectForKey:KEY_ABNORMAL_RESULTS_PAP] boolValue] == TRUE) {
+                
+                tvUpcomingPap.setText("SEE PAP SMEAR REPORT");
+            }
+            else {
+                
+                tvUpcomingPap.setText("DISCONTINUED DUE TO AGE");
+            }
+        }
+        else {
+            
+            
+            if(sp.getBoolean("papDateGiven", false)) {
+                
+                if( sp.getBoolean( "ageGiven", false ) ) {
+                    
+                    if (sp.getBoolean("abnormalPap", true)) {
+                        
+                        tvUpcomingPap.setText("SEE PAP SMEAR REPORT");
+                    }
+                    else {
+                        
+                        if( scheduleImmediately() ) {
+                            
+                            tvUpcomingPap.setText("SCHEDULE IMMEDIATELY");
+                        }
+                        else {
+                            
+                            displayPapInfo();
+                        }
+                    }
+                }
+                else {
+                    
+                    tvUpcomingPap.setText("PLEASE ENTER YOUR AGE IN PERSONAL INFO");
+                }
+                
+            }
+            else {
+                
+                tvUpcomingPap.setText("NO RECORD OF LAST EXAM");
+            }
+        }
+    }
+      */
+    
     
 }
 

@@ -16,11 +16,8 @@
 /*
 
 -No and Yes buttons should be switched in GUI (Yes is on the LHS and No on the RHS in the Android version)
-+Add constraints to GUI
--Change Settings GUI
 -Check for no key on personal info inputs
 +Last Exam Date
-+Reports
 +Upcoming
 -Validate date (make it so you cannot save unless all fields are filled)
  
