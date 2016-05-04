@@ -15,6 +15,9 @@
 
 @implementation SuggestedLinksViewController
 
+NSMutableArray* titleArr;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,13 +30,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    dataArray = [[NSArray alloc] initWithObjects:@"Foobar", nil];
+    self.TableViewObject.dataSource=self;
+    self.TableViewObject.delegate=self;
+    
+    dataArray = [[NSArray alloc] initWithArray:[self getLinks]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationItem.title = self.title;
-    
-    NSArray* linksArr = [self getLinks];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,20 +49,104 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [dataArray count];
+}
+
+- (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellID=@"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (cell == nil){
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = [titleArr objectAtIndex:indexPath.row];
+    cell.textLabel.tag = indexPath.row;
+    
+    return cell;
+}
+
 - (NSArray*)getLinks {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray* arr = [[NSMutableArray alloc] initWithObjects:LINKS_ARRAY count:LINKS_ARRAY_COUNT];
+    NSMutableArray* arr = [[NSMutableArray alloc] init];
+    titleArr = [[NSMutableArray alloc] init];
+    
+    //populate arr
+    for (int linkIndex=0; linkIndex < LINKS_ARRAY_COUNT; linkIndex++) {
+        [arr addObject:LINKS_ARRAY[linkIndex]];
+    }
+    for (int linkIndex=0; linkIndex < LINKS_ARRAY_COUNT; linkIndex++) {
+        [titleArr addObject:LINKS_NAMES[linkIndex]];
+    }
+    
+    
     // Choose links based on defaults values here
     
+    NSMutableArray* linksArr = [[NSMutableArray alloc] init];
     
     
-    NSArray* linksArr = [[NSArray alloc] initWithArray:(NSArray*)arr];
+    int index = 0;
     
-    return linksArr;
+    NSDate* birthday = [defaults valueForKey:KEY_BIRTH_DATE];
+    NSTimeInterval timeSinceBDay = [[NSDate date] timeIntervalSinceDate:birthday];
+    double age = timeSinceBDay/(360.0*24.0*60.0*60.0);
+    
+    if ([[defaults objectForKey:KEY_SMOKES] boolValue] == FALSE) {
+        
+        for( int i = 0; i < 2; i++ ) {
+            [titleArr addObject:[arr objectAtIndex:index]];
+            [linksArr addObject:[arr objectAtIndex:index]];
+            index++;
+        }
+    }
+    else {
+        
+        for( int i = 0; i < 2; i++ ) {
+            
+            index++;
+        }
+    }
+    
+    if( age >= 21 && age <= 26 && !([defaults objectForKey:KEY_HPV_VACCINATED]) ) {
+        
+        for( int i = 0; i < 5; i++ ) {
+            
+            [linksArr addObject:[arr objectAtIndex:index]];
+            [linksArr addObject:[arr objectAtIndex:index]];
+            index++;
+        }
+    }
+    else {
+        
+        for( int i = 0; i < 5; i++ ) {
+            
+            index++;
+        }
+    }
+    
+    if ([defaults objectForKey:KEY_FAMILY_HISTORY_CANCER]) {
+        
+        for (int i = 0; i < 3; i++) {
+            
+            [linksArr addObject:[arr objectAtIndex:index]];
+            [linksArr addObject:[arr objectAtIndex:index]];
+            index++;
+        }
+    }
+    
+    return (NSArray*)linksArr;
 }
 
 
-
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dataArray objectAtIndex:indexPath.row]]];
+    
+    
+}
 
 
 

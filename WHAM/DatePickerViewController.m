@@ -214,11 +214,9 @@ typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_D
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:self.datePicker.date forKey:keyForDefaults];
         if (showLabelHPV ) {
-            NSLog(@"%@",[NSNumber numberWithBool:self.buttonHPVyes.isSelected] );
             [defaults setObject:[NSNumber numberWithBool:self.buttonHPVyes.isSelected] forKey:KEY_HPV_TESTED];
         }
         if (showLabelAbnormal) {
-            NSLog(@"%@",[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] );
             if (self.pickerType == PickExamDateMammo) {
                 [defaults setObject:[NSNumber numberWithBool:self.buttonResultsAbnormalYes.isSelected] forKey:KEY_ABNORMAL_RESULTS_MAMMO];
             } else {

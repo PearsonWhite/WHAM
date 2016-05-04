@@ -13,8 +13,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
 
+
+    
+    // self.window.tintColor = [UIColor whiteColor];
+
+    // [Personal Info setImage:image];
+
+    
+    //[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navigation.png"]forBarMetrics:UIBarMetricsDefault];
     // Override point for customization after application launch.
     return YES;
 }

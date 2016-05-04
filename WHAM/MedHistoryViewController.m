@@ -88,11 +88,9 @@ NSDictionary* defaultsLocalDictMH = nil;
             if (!(index % 2)) {
                 // YES button
                 [[buttonArray objectAtIndex:index] setSelected:[[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]];
-                NSLog(@"KEY: %d  VALUE: %d", index, [[keysArray objectAtIndex:index] boolValue]);
             } else {
                 // NO button (use opposite)
                 [[buttonArray objectAtIndex:index] setSelected:![[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]];
-                NSLog(@"KEY: %d  VALUE: %d", index, ![[keysArray objectAtIndex:index] boolValue]);
             }
         }
     }
@@ -147,7 +145,6 @@ NSDictionary* defaultsLocalDictMH = nil;
 
 
 - (IBAction)questionButtonPressed:(id)sender {
-    NSLog(@"Button index: %d", [buttonArray indexOfObject:(UIButton *)sender]);
     
     // potential code duplication.
     // could have just used bool var = !([buttonArray indexOfObject:(UIButton *)sender] % 2))
@@ -180,24 +177,7 @@ NSDictionary* defaultsLocalDictMH = nil;
     // update gui
     [self updateGUI];
     
-    /*
-    NSLog(@"isHighlighted: %d", ((UIButton*)sender).isSelected);
     
-    // update buttons
-    NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
-    for (NSUInteger index = 0; index < [buttonArray count]; index+=1) {
-        // questionably set buttons to correct highlights
-        if (!(index % 2)) {
-            // YES button
-            [[buttonArray objectAtIndex:index] setSelected:[[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]];
-            NSLog(@"KEY: %d  VALUE: %d", index, [[keysArray objectAtIndex:index] boolValue]);
-        } else {
-            // NO button (use opposite)
-            [[buttonArray objectAtIndex:index] setSelected:![[defaults objectForKey:[keysArray objectAtIndex:index]] boolValue]];
-            NSLog(@"KEY: %d  VALUE: %d", index, ![[keysArray objectAtIndex:index] boolValue]);
-        }
-    }
-     */
 }
 
 
