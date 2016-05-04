@@ -49,10 +49,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - IBActions
+
 - (IBAction)buttonResetInformationPressed:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirm" message:@"Are you sure? This action cannot be undone." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Clear", nil];
     [alert show];
 }
+
+#pragma mark - settings functionality
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     // the user clicked CLEAR

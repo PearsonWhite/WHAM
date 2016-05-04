@@ -15,6 +15,8 @@
 
 @implementation DatePickerViewController
 
+// these @properties are used by the pushing VC to control what preference we're handling here
+// Ex. lastMammo set by lastProcedures VC
 @synthesize pickerType;
 @synthesize datePicker;
 @synthesize showLabelHPV, showLabelAbnormal;
@@ -50,7 +52,7 @@ NSString* keyForDefaults;
     
     
     
-    
+    // set button images (for checkboxes)
     [self.buttonHPVno setBackgroundImage:[UIImage imageNamed:@"emptyBox.png"]
                                     forState:UIControlStateNormal];
     [self.buttonHPVyes setBackgroundImage:[UIImage imageNamed:@"emptyBox.png"]
@@ -72,6 +74,7 @@ NSString* keyForDefaults;
     
     //NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     //NSDate* defaultDate;
+    // set which key will be used for the nsdefaults
     switch (self.pickerType) {
         case PickExamDateBDay: {
             keyForDefaults = KEY_BIRTH_DATE;
@@ -95,7 +98,7 @@ NSString* keyForDefaults;
     [self.datePicker setDatePickerMode:UIDatePickerModeDate];
     
     
-    
+    // show or hide questions/checkboxes depending on what the previous VC has set
     [self.labelTestedForHPV setHidden:!showLabelHPV];
     [self.labelTestedForHPVyes setHidden:!showLabelHPV];
     [self.labelTestedForHPVno setHidden:!showLabelHPV];
@@ -120,6 +123,7 @@ NSString* keyForDefaults;
     
 }
 
+// used to recall what info nsdefaults has from user
 - (void)loadSavedAnswers {
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     
@@ -150,6 +154,7 @@ NSString* keyForDefaults;
     
 }
 
+// if not valid, we need to alert user and not save. enums determine the error
 typedef enum VALIDATE_RETURN { RETURN_VALID = 0, RETURN_DATE_INCORRECT, RETURN_DATE_TOO_YOUNG, RETURN_QUESTION_UNANSWERED, RETURN_LAST } VALIDATE_RETURN;
 - (VALIDATE_RETURN)validateInformation {
     #warning unfinished implementation

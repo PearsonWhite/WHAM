@@ -10,6 +10,8 @@
 
 @interface LastProceduresViewController : UIViewController
 
+// these @properties are used by the pushing VC to control what preference we're handling here
+// Ex. lastMammo set by lastProcedures VC
 @property NSDate* lastMammoDate;
 @property NSDate* lastPapDate;
 

@@ -38,7 +38,7 @@ NSDictionary* defaultsLocalDictMH = nil;
     
     
     
-    // setup arrays
+    // setup arrays (for keys and buttons)
     self.buttonArray = [[NSMutableArray alloc] initWithObjects:
                         questionButton1_yes, questionButton1_no,
                         questionButton2_yes, questionButton2_no,
@@ -76,7 +76,7 @@ NSDictionary* defaultsLocalDictMH = nil;
     // update buttons
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
     
-    
+    // only apply if nsdefaults already has info on user
     if(![[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_HISTORY_HPV]){
         // for now we assume that all fields are filled out or none are
         for (UIButton* button in buttonArray) {
@@ -106,6 +106,7 @@ NSDictionary* defaultsLocalDictMH = nil;
 
 }
 
+// dynamically sets GUI (depending on user answers)
 - (void)updateGUI {
     if ([[buttonArray objectAtIndex:5] isSelected]) {
         [self.labelDueToCancer setHidden:FALSE];
@@ -134,6 +135,8 @@ NSDictionary* defaultsLocalDictMH = nil;
     
 }
 
+#pragma make - IBActions
+
 - (IBAction)buttonSavePressed:(id)sender {
     // standardUserDefaults = defaultsLocalDict
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -143,7 +146,7 @@ NSDictionary* defaultsLocalDictMH = nil;
     [self.navigationController popViewControllerAnimated:TRUE];
 }
 
-
+// main logic for deselecting contrary check boxes (only YES or NO checked, not both)
 - (IBAction)questionButtonPressed:(id)sender {
     
     // potential code duplication.

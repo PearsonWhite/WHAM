@@ -20,6 +20,7 @@
 +Last Exam Date
 +Upcoming
 -Validate date (make it so you cannot save unless all fields are filled)
+-Alert user when switching or popping VCs without saving (given that user has modified personal info)
  
 */
 

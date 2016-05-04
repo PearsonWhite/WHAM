@@ -15,6 +15,7 @@
 
 @implementation SuggestedLinksViewController
 
+// titles for urls (the text displayed on the tableview cells for each link)
 NSMutableArray* titleArr;
 
 
@@ -49,7 +50,7 @@ NSMutableArray* titleArr;
     // Dispose of any resources that can be recreated.
 }
 
-
+# pragma mark - tableview delage methods
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -68,6 +69,18 @@ NSMutableArray* titleArr;
     
     return cell;
 }
+
+
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dataArray objectAtIndex:indexPath.row]]];
+    
+    
+}
+
+# pragma mark - suggested links logic
+
+// Note: this logic is the same as in the Android Application
 
 - (NSArray*)getLinks {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -139,16 +152,6 @@ NSMutableArray* titleArr;
     
     return (NSArray*)linksArr;
 }
-
-
-// Tap on table Row
-- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dataArray objectAtIndex:indexPath.row]]];
-    
-    
-}
-
-
 
 
 

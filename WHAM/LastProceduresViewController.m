@@ -18,6 +18,7 @@
 
 @synthesize labelLastMammo, labelLastPap;
 
+// used to set datepicker VC settings
 PickViewType pickerToGoTo;
 bool showLabelHPV = FALSE;
 bool showLabelAbnormalResults = FALSE;
@@ -48,6 +49,7 @@ NSString* childViewTitle = @"";
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"mm/dd/yyyy"];
     
+    // if user has entries in personal history, reflect these prefs
     if(![[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_LAST_MAMMO_DATE]){
         self.lastMammoDate = [defaults valueForKey:KEY_LAST_MAMMO_DATE];
         [self.labelLastMammo setText:[formatter stringFromDate:self.lastMammoDate]];
@@ -55,7 +57,7 @@ NSString* childViewTitle = @"";
         self.lastMammoDate = nil;
         [self.labelLastMammo setText:@"Not set"];
     }
-    
+    // if user has entries in personal history, reflect these prefs
     if(![[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_LAST_PAP_DATE]){
         self.lastPapDate = [defaults valueForKey:KEY_LAST_PAP_DATE];
         [self.labelLastPap setText:[formatter stringFromDate:self.lastPapDate]];
@@ -63,7 +65,7 @@ NSString* childViewTitle = @"";
         self.lastPapDate = nil;
         [self.labelLastPap setText:@"Not set"];
     }
-    
+    // make sure our bar doesn't dissapear on us
     [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
     
 }
@@ -72,6 +74,7 @@ NSString* childViewTitle = @"";
 {
     NSString * segueName = segue.identifier;
     if ([segueName isEqualToString: @"toUpdateDate"]) {
+        // go to picker view and set relavent attributes to show options for pap or mammo
         DatePickerViewController * childViewController = (DatePickerViewController *) [segue destinationViewController];
         childViewController.pickerType = pickerToGoTo;
         childViewController.showLabelHPV = showLabelHPV;

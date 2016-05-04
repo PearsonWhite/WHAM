@@ -27,7 +27,7 @@ GeneratedType generatetedType;
     UITabBarItem *item2 = [self.tabBarController.tabBar.items objectAtIndex:2];
     UITabBarItem *item3 = [self.tabBarController.tabBar.items objectAtIndex:3];
 
-
+    // set button images (for checkboxes)
     [item0 setImage:[[UIImage imageNamed:@"reports.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
     [item1 setImage:[[UIImage imageNamed:@"information.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];

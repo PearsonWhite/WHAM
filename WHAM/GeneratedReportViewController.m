@@ -9,6 +9,12 @@
 #import "GeneratedReportViewController.h"
 #import "constants.h"
 
+//
+//
+//  Logic for this VC is in Android Application
+//  This logic determines the recommendations and next exam dates
+//
+// 
 
 @interface GeneratedReportViewController ()
 

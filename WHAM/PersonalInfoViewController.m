@@ -14,6 +14,7 @@
 
 @end
 
+// Main VC for user input of prefs (for modifying nsdefaults)
 
 @implementation PersonalInfoViewController
 
@@ -57,7 +58,7 @@ BOOL doesSmoke;
 - (void)viewWillAppear:(BOOL)animated {
     //self.navigationController.navigationBarHidden = true;
     
-    // set check buttons (smoke)
+    // set check buttons (for smoke: y/n)
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
     if([[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_SMOKES]){
         doesSmoke = [[defaults valueForKey:KEY_SMOKES] boolValue];
@@ -83,7 +84,7 @@ BOOL doesSmoke;
     NSString * segueName = segue.identifier;
     if ([segueName isEqualToString: @"toUpdateDate"]) {
         DatePickerViewController * childViewController = (DatePickerViewController *) [segue destinationViewController];
-        
+        // set picker type for: birthday. (hide mammo and pap options)
         childViewController.pickerType = PickExamDateBDay;
         childViewController.showLabelHPV = FALSE;
         childViewController.showLabelAbnormal = FALSE;
@@ -94,6 +95,8 @@ BOOL doesSmoke;
     [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
     [self.navigationItem setHidesBackButton:FALSE];
 }
+
+#pragma mark - IBActions
 
 - (IBAction)buttonSavePressed:(id)sender {
     // update saved values

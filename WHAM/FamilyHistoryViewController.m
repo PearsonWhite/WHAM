@@ -40,7 +40,7 @@ NSDictionary* defaultsLocalDictFH = nil;
     
     
     
-    // setup arrays
+    // setup button arrays
     self.buttonArray = [[NSMutableArray alloc] initWithObjects:
                         questionButton1_yes, questionButton1_no,
                         questionButton2_Mother, questionButton2_Sister, questionButton2_Daughter,
@@ -77,7 +77,7 @@ NSDictionary* defaultsLocalDictFH = nil;
     // update buttons
     NSUserDefaults *defaults= [NSUserDefaults standardUserDefaults];
     
-    
+    // check defaults for if user has already entered information
     if(![[[defaults dictionaryRepresentation] allKeys] containsObject:KEY_FAMILY_HISTORY_CANCER]){
         // for now we assume that all fields are filled out or none are
         // looks like none are filled
@@ -115,6 +115,7 @@ NSDictionary* defaultsLocalDictFH = nil;
     [super viewWillDisappear:animated];
 }
 
+// used to set questions that only appear when certain answers are checked
 - (void)showDynamicGUI:(BOOL)shouldShow {
 
     [self.labelWhichMembers setHidden:!shouldShow];
@@ -127,6 +128,8 @@ NSDictionary* defaultsLocalDictFH = nil;
     [self.questionButton2_Sister setHidden:!shouldShow];
     
 }
+
+#pragma mark - IBActions
 
 - (IBAction)buttonSavePressed:(id)sender {
     // standardUserDefaults = defaultsLocalDict
